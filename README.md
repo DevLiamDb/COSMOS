@@ -101,26 +101,6 @@ and planets
 
 ---
 
-## How it works
-
-<div align="center">
-
-<img src="assets/diagrams/02-write-search-recall.png" width="860" alt="Write, search, recall">
-
-*The three moves behind every conversation. The assistant only ever reads what it asks for.*
-
-</div>
-
-<div align="center">
-
-<img src="assets/diagrams/01-architecture.png" width="860" alt="COSMOS architecture">
-
-*Your assistant talks to a small local server. Everything is stored in one SQLite file.*
-
-</div>
-
----
-
 ## Why COSMOS
 
 We compared COSMOS with the usual approach (pasting the whole notes file into the prompt) on **8 open models** (1.7B to 8B parameters), 298 questions per model and per setup, with about 200 memories stored.
@@ -133,31 +113,6 @@ We compared COSMOS with the usual approach (pasting the whole notes file into th
 | Models where it wins · ties · loses | | **4 · 2 · 2** |
 
 COSMOS is not better everywhere: it loses against the full file on Llama 3.2 3B and Qwen3.5 4B. The honest details, the method and the limits are in [`benchmark-cosmos/`](benchmark-cosmos/SUMMARY.md) and on the [website](https://cosmos.devliam.com). **[Full methodology (PDF)](docs/benchmark-methodology.pdf)**: data, setups, scoring, statistics and limits.
-
-
-<div align="center">
-
-<img src="assets/diagrams/03-context.png" width="860" alt="What the model has to read">
-
-*Same question, two ways to remember: the whole file or only 3 memories.*
-
-</div>
-
-<div align="center">
-
-<img src="assets/diagrams/06-accuracy.png" width="860" alt="Accuracy per model">
-
-*Accuracy per model, with 95% confidence intervals. COSMOS wins on 4 models, ties on 2, loses on 2.*
-
-</div>
-
-<div align="center">
-
-<img src="assets/diagrams/08-scaling.png" width="860" alt="Search as memory grows">
-
-*Search alone: the right memory stays in the top 3 about 95% of the time up to 1,700 memories.*
-
-</div>
 
 
 ---
@@ -270,14 +225,6 @@ COSMOS contains **an AI model of its own**, used for search only. It does not wr
 - **What it is:** Polaris is `multilingual-e5-small` (118 million parameters, MIT license) fine-tuned by us on 7,040 memories in 12 languages written for COSMOS. About 10 minutes of training on 2 Tesla T4 GPUs.
 - **What it does:** a question and every memory become vectors. The closest vectors are the best matches. That is why "why did we change databases?" finds "we are moving to PostgreSQL".
 - **Where it runs:** on your CPU, in ONNX format, through [fastembed](https://github.com/qdrant/fastembed). No GPU, no cloud, no API call. Your memories never leave your machine.
-
-<div align="center">
-
-<img src="assets/diagrams/04-search-model.png" width="860" alt="How COSMOS picks its search model">
-
-*Polaris if it can be reached, MiniLM otherwise.*
-
-</div>
 
 **How COSMOS gets the model**
 

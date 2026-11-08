@@ -101,26 +101,6 @@ et de planètes
 
 ---
 
-## Comment ça marche
-
-<div align="center">
-
-<img src="../assets/diagrams/02-write-search-recall.png" width="860" alt="Écrire, chercher, rappeler">
-
-*Les trois gestes derrière chaque conversation. L'assistant ne lit que ce qu'il demande. (Schéma en anglais.)*
-
-</div>
-
-<div align="center">
-
-<img src="../assets/diagrams/01-architecture.png" width="860" alt="Architecture de COSMOS">
-
-*Ton assistant parle à un petit serveur local. Tout est stocké dans un seul fichier SQLite. (Schéma en anglais.)*
-
-</div>
-
----
-
 ## Pourquoi COSMOS
 
 On a comparé COSMOS à l'approche habituelle (coller tout le fichier de notes dans le prompt) sur **8 modèles ouverts** (1,7 à 8 milliards de paramètres), 298 questions par modèle et par configuration, avec environ 200 souvenirs en mémoire.
@@ -133,31 +113,6 @@ On a comparé COSMOS à l'approche habituelle (coller tout le fichier de notes d
 | Modèles où il gagne · égalise · perd | | **4 · 2 · 2** |
 
 COSMOS n'est pas meilleur partout : il perd face au fichier complet sur Llama 3.2 3B et Qwen3.5 4B. Les détails honnêtes, la méthode et les limites sont dans [`benchmark-cosmos/`](../benchmark-cosmos/SUMMARY.md) et sur le [site](https://cosmos.devliam.com). **[Méthodologie complète (PDF, en anglais)](../docs/benchmark-methodology.pdf)** : données, configurations, notation, statistiques et limites.
-
-
-<div align="center">
-
-<img src="../assets/diagrams/03-context.png" width="860" alt="Ce que le modèle doit lire">
-
-*Même question, deux façons de se souvenir : tout le fichier ou seulement 3 souvenirs. (Schéma en anglais.)*
-
-</div>
-
-<div align="center">
-
-<img src="../assets/diagrams/06-accuracy.png" width="860" alt="Justesse par modèle">
-
-*Justesse par modèle, avec intervalles de confiance à 95 %. COSMOS gagne sur 4 modèles, égalise sur 2, perd sur 2. (Graphique en anglais.)*
-
-</div>
-
-<div align="center">
-
-<img src="../assets/diagrams/08-scaling.png" width="860" alt="La recherche quand la mémoire grandit">
-
-*Recherche seule : le bon souvenir reste dans le top 3 environ 95 % du temps jusqu'à 1 700 souvenirs. (Graphique en anglais.)*
-
-</div>
 
 
 ---
@@ -270,14 +225,6 @@ COSMOS contient **un modèle d'IA à lui**, utilisé uniquement pour la recherch
 - **Ce que c'est :** Polaris est `multilingual-e5-small` (118 millions de paramètres, licence MIT) affiné par nos soins sur 7 040 souvenirs en 12 langues écrits pour COSMOS. Environ 10 minutes d'entraînement sur 2 GPU Tesla T4.
 - **Ce qu'il fait :** une question et chaque souvenir deviennent des vecteurs. Les vecteurs les plus proches sont les meilleures réponses. C'est pour ça que « pourquoi a-t-on changé de base ? » retrouve « on migre vers PostgreSQL ».
 - **Où il tourne :** sur ton processeur, au format ONNX, via [fastembed](https://github.com/qdrant/fastembed). Pas de GPU, pas de cloud, pas d'appel d'API. Tes souvenirs ne quittent jamais ta machine.
-
-<div align="center">
-
-<img src="../assets/diagrams/04-search-model.png" width="860" alt="Comment COSMOS choisit son modèle de recherche">
-
-*Polaris s'il est accessible, MiniLM sinon. (Schéma en anglais.)*
-
-</div>
 
 **Comment COSMOS récupère le modèle**
 
