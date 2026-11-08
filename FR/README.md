@@ -237,6 +237,7 @@ COSMOS contient **un modèle d'IA à lui**, utilisé uniquement pour la recherch
 | Version la plus récente d'un fait classée en premier | 91,7 % | 91,7 % | 86,1 % |
 
 Il n'est pas devant partout : sur la recherche seule, il classe moins souvent en premier la version la plus récente d'un fait. COSMOS corrige cet ordre ensuite, grâce à la date. Petit jeu de test (~125 questions par tirage) : des écarts de 1 à 2 points restent dans la marge du hasard.
+
 ---
 
 <details>

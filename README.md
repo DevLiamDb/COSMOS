@@ -237,6 +237,7 @@ COSMOS contains **an AI model of its own**, used for search only. It does not wr
 | Newest version of a fact ranked first | 91.7% | 91.7% | 86.1% |
 
 It is not ahead everywhere: on search alone it ranks the newest version of a fact first less often. COSMOS fixes that order afterwards using the date. Small test set (~125 questions per draw): gaps of 1 to 2 points are within chance.
+
 ---
 
 <details>
