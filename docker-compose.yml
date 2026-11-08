@@ -1,0 +1,47 @@
+# COSMOS — hebergement local (Raspberry Pi ou autre machine perso).
+#
+# Independant de tout autre conteneur (ex: serveur Minecraft) : Docker isole
+# deja chaque service dans son propre cgroup/reseau par defaut, il suffit
+# donc de lancer ce compose separement du compose Minecraft (voir README
+# section "Cohabitation avec un autre service" plus bas pour le partage de
+# ressources sur une machine a memoire limitee).
+#
+# Usage :
+#   1. cp .env.docker.example .env.docker   (puis editer COSMOS_MCP_TOKEN)
+#   2. docker compose up -d --build
+#   3. curl http://<ip-du-pi>:8765/health   -> {"status":"ok"}
+#
+# La webapp (cosmos-db.ts) et Claude Desktop en mode stdio n'ont PAS besoin
+# de ce conteneur : celui-ci sert uniquement le transport HTTP distant.
+
+services:
+  cosmos-mcp:
+    build: .
+    container_name: cosmos-mcp
+    restart: unless-stopped
+    env_file:
+      - .env.docker
+    environment:
+      COSMOS_MCP_TRANSPORT: http
+      COSMOS_MCP_HOST: 0.0.0.0
+      COSMOS_DB_PATH: /data/cosmos.db
+      FASTEMBED_CACHE_DIR: /data/fastembed_cache
+    ports:
+      - "8765:8765"
+    volumes:
+      - cosmos_data:/data
+    # Limites memoire/CPU : a ajuster selon ce qui reste une fois le serveur
+    # Minecraft demarre. Le modele d'embedding (MiniLM 384d) + onnxruntime
+    # tiennent large dans 768 Mo une fois charges ; 1 Go laisse de la marge.
+    mem_limit: 1g
+    memswap_limit: 1g
+    cpus: "1.5"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8765/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  cosmos_data:

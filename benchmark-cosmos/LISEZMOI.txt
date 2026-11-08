@@ -1,0 +1,10 @@
+Benchmark COSMOS
+================
+report.html        -> ouvre ce fichier d'abord (tableaux + graphiques, tout en un)
+SUMMARY.md         -> résumé en texte
+charts/            -> les graphiques en PNG
+tables/            -> les tableaux en CSV (toutes_les_reponses.csv = chaque réponse de chaque modèle)
+raw/               -> résultats bruts JSON par modèle
+logs/              -> journal complet de chaque modèle
+dataset.json       -> les souvenirs et questions écrits à la main
+meta.json          -> machine, versions, paramètres

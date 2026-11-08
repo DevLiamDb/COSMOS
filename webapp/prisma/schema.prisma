@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/* ------------------------------------------------------------------ */
+/* COSMOS — données actuelles (source de la synchronisation)           */
+/* ------------------------------------------------------------------ */
+
+/** Une catégorie = une étoile ✦ du cosmos (source de vérité de la sync). */
+model CosmosCategory {
+  id          String         @id
+  name        String
+  domain      String
+  description String
+  color       String
+  tags        String         @default("[]") // JSON string[]
+  priority    Boolean        @default(false) // chargée en début de conversation
+  position    Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+  planets     CosmosPlanet[]
+}
+
+/** Une planète = une donnée textuelle en orbite autour de son étoile. */
+model CosmosPlanet {
+  id          String         @id
+  categoryId  String
+  category    CosmosCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  sessionId   String?
+  title       String
+  nodeType    String
+  description String
+  content     String
+  color       String
+  importance  Int            @default(3)
+  tags        String         @default("[]") // JSON string[]
+  connections String         @default("[]") // JSON string[]
+  statut      String?
+  createdAt   DateTime
+  updatedAt   DateTime
+}
+
+/** Session de travail associée aux planètes. */
+model CosmosSession {
+  id    String   @id
+  label String
+  date  DateTime
+}

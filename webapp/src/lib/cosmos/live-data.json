@@ -1,0 +1,143 @@
+{
+  "categories": [
+    {
+      "id": "architecture_cosmos",
+      "kind": "category",
+      "name": "architecture_cosmos",
+      "color": "#7aa2f7",
+      "description": "Categorie de souvenirs COSMOS.",
+      "priority": false,
+      "metadata": {
+        "tags": [],
+        "domain": "architecture_cosmos"
+      }
+    },
+    {
+      "id": "limitation_connue",
+      "kind": "category",
+      "name": "limitation_connue",
+      "color": "#e0af68",
+      "description": "Categorie prioritaire -- chargee automatiquement par cosmos_priority_context, sans avoir a la rechercher.",
+      "priority": true,
+      "metadata": {
+        "tags": [],
+        "domain": "limitation_connue"
+      }
+    },
+    {
+      "id": "preference",
+      "kind": "category",
+      "name": "preference",
+      "color": "#f7768e",
+      "description": "Categorie prioritaire -- chargee automatiquement par cosmos_priority_context, sans avoir a la rechercher.",
+      "priority": true,
+      "metadata": {
+        "tags": [],
+        "domain": "preference"
+      }
+    }
+  ],
+  "planets": [
+    {
+      "id": "917407dc-4513-4231-83e5-c52d6003903a",
+      "kind": "planet",
+      "category_id": "preference",
+      "session_id": "default",
+      "node_type": "reference",
+      "title": "Préférence permanente de Julia : réponses concises et dir…",
+      "short_description": "Préférence permanente de Julia : réponses concises et directes, sans verbosité inutile ni formatage excessif (peu de listes/titres sauf si vraiment nécessaire).",
+      "content": "Préférence permanente de Julia : réponses concises et directes, sans verbosité inutile ni formatage excessif (peu de listes/titres sauf si vraiment nécessaire).",
+      "created_at": "2026-08-29T15:28:36.966250+00:00",
+      "updated_at": "2026-08-29T15:28:36.966250+00:00",
+      "color": "#f7768e",
+      "metadata": {
+        "importance": 5,
+        "tags": [],
+        "connections": [
+          "511f3da9-49c5-40ec-8369-cc3aca557d1f",
+          "583dfd61-ec45-4ce5-9b94-17a878dba916",
+          "9a2495e4-8a64-4f81-9951-08a4f7079448"
+        ],
+        "pinned": false
+      }
+    },
+    {
+      "id": "583dfd61-ec45-4ce5-9b94-17a878dba916",
+      "kind": "planet",
+      "category_id": "architecture_cosmos",
+      "session_id": "default",
+      "node_type": "note",
+      "title": "Architecture COSMOS (29/08/2026) : la webapp Next.js COSM…",
+      "short_description": "Architecture COSMOS (29/08/2026) : la webapp Next.js COSMOS- lit et écrit désormais DIRECTEMENT cosmos.db via better-sqlite3 (module cosmos-db.ts), en WAL pour cohabiter avec le process Python.",
+      "content": "Architecture COSMOS (29/08/2026) : la webapp Next.js COSMOS- lit et écrit désormais DIRECTEMENT cosmos.db via better-sqlite3 (module cosmos-db.ts), en WAL pour cohabiter avec le process Python. L'ancien export JSON (cosmos_export_web -> live-data.json) reste un repli secondaire, plus la source primaire.",
+      "created_at": "2026-08-29T15:28:43.990300+00:00",
+      "updated_at": "2026-08-29T15:28:43.990300+00:00",
+      "color": "#7aa2f7",
+      "metadata": {
+        "importance": 3,
+        "tags": [],
+        "connections": [
+          "511f3da9-49c5-40ec-8369-cc3aca557d1f",
+          "917407dc-4513-4231-83e5-c52d6003903a",
+          "9a2495e4-8a64-4f81-9951-08a4f7079448"
+        ],
+        "pinned": false
+      }
+    },
+    {
+      "id": "511f3da9-49c5-40ec-8369-cc3aca557d1f",
+      "kind": "planet",
+      "category_id": "architecture_cosmos",
+      "session_id": "default",
+      "node_type": "note",
+      "title": "Nouveaux outils MCP COSMOS pour la personnalisation manue…",
+      "short_description": "Nouveaux outils MCP COSMOS pour la personnalisation manuelle (ajoutés 29/08/2026) : cosmos_rename_category, cosmos_set_category_color, cosmos_merge_categories, cosmos_update_node, cosmos_set_pinned.",
+      "content": "Nouveaux outils MCP COSMOS pour la personnalisation manuelle (ajoutés 29/08/2026) : cosmos_rename_category, cosmos_set_category_color, cosmos_merge_categories, cosmos_update_node, cosmos_set_pinned. Ils permettent de renommer/recolorer/fusionner des catégories et d'éditer/épingler des souvenirs, en plus de ce que la webapp permet déjà de faire elle-même directement en base.",
+      "created_at": "2026-08-29T15:28:51.414441+00:00",
+      "updated_at": "2026-08-29T15:28:51.414441+00:00",
+      "color": "#7aa2f7",
+      "metadata": {
+        "importance": 3,
+        "tags": [],
+        "connections": [
+          "583dfd61-ec45-4ce5-9b94-17a878dba916",
+          "917407dc-4513-4231-83e5-c52d6003903a",
+          "9a2495e4-8a64-4f81-9951-08a4f7079448"
+        ],
+        "pinned": false
+      }
+    },
+    {
+      "id": "9a2495e4-8a64-4f81-9951-08a4f7079448",
+      "kind": "planet",
+      "category_id": "limitation_connue",
+      "session_id": "default",
+      "node_type": "note",
+      "title": "Limite connue de l'édition manuelle depuis la webapp COSM…",
+      "short_description": "Limite connue de l'édition manuelle depuis la webapp COSMOS- : modifier ou créer un souvenir via l'interface (pas via une conversation Claude) ne recalcule PAS son embedding vectoriel, car le modèle fastembed n'existe que côté Python.",
+      "content": "Limite connue de l'édition manuelle depuis la webapp COSMOS- : modifier ou créer un souvenir via l'interface (pas via une conversation Claude) ne recalcule PAS son embedding vectoriel, car le modèle fastembed n'existe que côté Python. La recherche sémantique sur ce souvenir reste basée sur l'ancien contenu tant qu'un cosmos_reindex() n'a pas été relancé depuis une conversation.",
+      "created_at": "2026-08-29T15:28:59.387374+00:00",
+      "updated_at": "2026-08-29T15:28:59.387374+00:00",
+      "color": "#e0af68",
+      "metadata": {
+        "importance": 5,
+        "tags": [],
+        "connections": [
+          "511f3da9-49c5-40ec-8369-cc3aca557d1f",
+          "583dfd61-ec45-4ce5-9b94-17a878dba916",
+          "917407dc-4513-4231-83e5-c52d6003903a"
+        ],
+        "pinned": false
+      }
+    }
+  ],
+  "sessions": [
+    {
+      "id": "default",
+      "label": "default",
+      "date": "2026-08-29T15:28:36.966250+00:00"
+    }
+  ],
+  "generatedAt": "2026-08-29T15:29:16.872713+00:00",
+  "isDemo": false
+}

@@ -1,0 +1,14 @@
+cosmos.db
+cosmos.db-wal
+cosmos.db-shm
+cosmos_graph.html
+__pycache__
+*.pyc
+.git
+.pytest_cache
+tests
+
+# La webapp (fusionnee ici depuis l'ancien dossier COSMOS- separe) n'a rien
+# a faire dans l'image du serveur Python -- node_modules seul ferait
+# exploser la taille du contexte de build et le temps de `docker build`.
+webapp

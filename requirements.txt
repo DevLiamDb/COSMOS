@@ -1,0 +1,12 @@
+mcp>=2.0
+numpy>=1.24
+fastembed>=0.4
+
+# Necessaire uniquement pour le transport HTTP (COSMOS_MCP_TRANSPORT=http --
+# deploiement heberge, voir DEPLOY.md). Pas requis pour l'usage local en
+# stdio (Claude Desktop classique).
+uvicorn>=0.30
+
+# Optionnel -- necessaire uniquement pour scripts/chat_with_memory.py
+# (chat direct via l'API Claude, sans passer par un serveur MCP)
+anthropic>=1.0

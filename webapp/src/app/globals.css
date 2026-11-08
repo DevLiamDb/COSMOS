@@ -1,0 +1,185 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+  --font-display: var(--font-display);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/*
+ * COSMOS — thème unique, sombre et chaud.
+ * Fond quasi noir, surfaces translucides, accent or stellaire discret.
+ * (L'application est intrinsèquement sombre : pas de thème clair.)
+ */
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.145 0.012 265);
+  --foreground: oklch(0.93 0.006 90);
+  --card: oklch(0.185 0.014 265);
+  --card-foreground: oklch(0.93 0.006 90);
+  --popover: oklch(0.175 0.014 265);
+  --popover-foreground: oklch(0.93 0.006 90);
+  --primary: oklch(0.8 0.115 82);
+  --primary-foreground: oklch(0.16 0.012 265);
+  --secondary: oklch(0.225 0.014 265);
+  --secondary-foreground: oklch(0.93 0.006 90);
+  --muted: oklch(0.205 0.012 265);
+  --muted-foreground: oklch(0.64 0.008 90);
+  --accent: oklch(0.245 0.016 265);
+  --accent-foreground: oklch(0.93 0.006 90);
+  --destructive: oklch(0.65 0.19 25);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.8 0.115 82 / 55%);
+  --sidebar: oklch(0.185 0.014 265);
+  --sidebar-foreground: oklch(0.93 0.006 90);
+  --sidebar-primary: oklch(0.8 0.115 82);
+  --sidebar-primary-foreground: oklch(0.16 0.012 265);
+  --sidebar-accent: oklch(0.245 0.016 265);
+  --sidebar-accent-foreground: oklch(0.93 0.006 90);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.8 0.115 82 / 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: oklch(0.8 0.115 82 / 30%);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Utilitaires COSMOS                                                  */
+/* ------------------------------------------------------------------ */
+
+/** Panneau de verre très discret (chrome de l'interface). */
+.cosmos-glass {
+  background: oklch(0.16 0.014 265 / 72%);
+  backdrop-filter: blur(18px) saturate(1.15);
+  -webkit-backdrop-filter: blur(18px) saturate(1.15);
+  border: 1px solid oklch(1 0 0 / 8%);
+  box-shadow: 0 18px 48px -18px oklch(0 0 0 / 70%), inset 0 1px 0 oklch(1 0 0 / 4%);
+}
+
+/** Titre COSMOS (display, interlettré). */
+.cosmos-wordmark {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: 0.32em;
+  font-weight: 500;
+}
+
+/* Scrollbars fines et discrètes (panneaux, listes). */
+.cosmos-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(1 0 0 / 14%) transparent;
+}
+.cosmos-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.cosmos-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.cosmos-scroll::-webkit-scrollbar-thumb {
+  background: oklch(1 0 0 / 12%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.cosmos-scroll::-webkit-scrollbar-thumb:hover {
+  background: oklch(1 0 0 / 22%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Grain très léger — texture du vide. */
+.cosmos-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+}
+
+/* Contenu rédigé (panneau de détails) — lecture confortable. */
+.cosmos-prose {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: oklch(0.87 0.005 90);
+}
+.cosmos-prose h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: oklch(0.75 0.03 90);
+  margin: 1.6em 0 0.55em;
+}
+.cosmos-prose h2:first-child {
+  margin-top: 0;
+}
+.cosmos-prose p {
+  margin: 0 0 1em;
+}
+.cosmos-prose li {
+  margin: 0.3em 0;
+  padding-left: 1.1em;
+  position: relative;
+}
+.cosmos-prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: oklch(0.8 0.115 82 / 60%);
+}
+.cosmos-prose strong {
+  color: oklch(0.95 0.01 90);
+  font-weight: 600;
+}

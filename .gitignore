@@ -1,0 +1,35 @@
+﻿node_modules/
+.next/
+out/
+build/
+dist/
+.cache/
+.turbo/
+.vercel/
+*.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.vscode/
+.idea/
+
+# données personnelles et fichiers générés
+cosmos.db
+cosmos.db-shm
+cosmos.db-wal
+benchmark-cosmos.zip
+benchmark/results/
+
+# modeles lourds (Polaris ONNX ~470 Mo, sorties du fine-tuning Kaggle)
+models/
+cosmos-embed/
+training/out/
+
+.venv/

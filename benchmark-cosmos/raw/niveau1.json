@@ -1,0 +1,4320 @@
+{
+  "date": "2026-10-22T05:52:00",
+  "model": null,
+  "args": {
+    "llm": null,
+    "device_map": "single",
+    "scales": "50,100,200,400,800,1600",
+    "seeds": "0,1,2,3,4",
+    "synthetic": 60,
+    "k": 3,
+    "configs": "none,full_md,cosmos",
+    "limit": 0,
+    "out": "/kaggle/working/cosmos/benchmark/results"
+  },
+  "partial": false,
+  "dtype": null,
+  "summary": {
+    "50": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_questions": 125,
+      "n_souvenirs": 150,
+      "niveau1": {
+        "recall@1": [
+          0.8343844588540487,
+          0.0171908557177328
+        ],
+        "recall@3": [
+          0.9716528795736716,
+          0.007794864365392821
+        ],
+        "recall@5": [
+          0.9776940959402063,
+          0.007755322574696692
+        ],
+        "mrr": [
+          0.9026128088999376,
+          0.008042338228396608
+        ],
+        "update_acc": [
+          0.7,
+          0.11303883305208781
+        ],
+        "abstention_best_acc": [
+          0.8479761239522479,
+          0.010409989295040186
+        ],
+        "categorisation_acc": [
+          0.38,
+          0.05811865258054232
+        ],
+        "latence_query_ms_med": [
+          10.054626900000585,
+          0.07867398154222299
+        ],
+        "tokens_estimes_full_md": [
+          1848.4,
+          12.175385004179539
+        ]
+      }
+    },
+    "100": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_questions": 125,
+      "n_souvenirs": 200,
+      "niveau1": {
+        "recall@1": [
+          0.8343844588540487,
+          0.0171908557177328
+        ],
+        "recall@3": [
+          0.9716528795736716,
+          0.007794864365392821
+        ],
+        "recall@5": [
+          0.9736936959002023,
+          0.005150234635083221
+        ],
+        "mrr": [
+          0.901738086102099,
+          0.008002077809606965
+        ],
+        "update_acc": [
+          0.7,
+          0.11303883305208781
+        ],
+        "abstention_best_acc": [
+          0.8479761239522479,
+          0.010409989295040186
+        ],
+        "categorisation_acc": [
+          0.38666666666666666,
+          0.06863753427324668
+        ],
+        "latence_query_ms_med": [
+          11.484690300017064,
+          1.7901983205767462
+        ],
+        "tokens_estimes_full_md": [
+          2387.4,
+          12.2245654319489
+        ]
+      }
+    },
+    "200": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_questions": 125,
+      "n_souvenirs": 300,
+      "niveau1": {
+        "recall@1": [
+          0.8323642568338466,
+          0.01596493388279653
+        ],
+        "recall@3": [
+          0.9696726815538697,
+          0.006527059655566809
+        ],
+        "recall@5": [
+          0.9736936959002023,
+          0.005150234635083221
+        ],
+        "mrr": [
+          0.898850895293611,
+          0.007690209096250995
+        ],
+        "update_acc": [
+          0.7,
+          0.11303883305208781
+        ],
+        "abstention_best_acc": [
+          0.8479761239522479,
+          0.010409989295040186
+        ],
+        "categorisation_acc": [
+          0.32666666666666666,
+          0.1019803902718557
+        ],
+        "latence_query_ms_med": [
+          12.886535800021193,
+          1.9576497229204262
+        ],
+        "tokens_estimes_full_md": [
+          3460,
+          14.477568856683087
+        ]
+      }
+    },
+    "400": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_questions": 125,
+      "n_souvenirs": 500,
+      "niveau1": {
+        "recall@1": [
+          0.8303440548136446,
+          0.01571249302547657
+        ],
+        "recall@3": [
+          0.965611663207137,
+          0.008270804455319346
+        ],
+        "recall@5": [
+          0.9736936959002023,
+          0.005150234635083221
+        ],
+        "mrr": [
+          0.8968656151329418,
+          0.007261719004297388
+        ],
+        "update_acc": [
+          0.7,
+          0.11303883305208781
+        ],
+        "abstention_best_acc": [
+          0.8479761239522479,
+          0.010409989295040186
+        ],
+        "categorisation_acc": [
+          0.3,
+          0.10540925533894598
+        ],
+        "latence_query_ms_med": [
+          14.296960900003342,
+          0.13762710262321096
+        ],
+        "tokens_estimes_full_md": [
+          5557,
+          20.346989949375804
+        ]
+      }
+    },
+    "800": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_questions": 125,
+      "n_souvenirs": 900,
+      "niveau1": {
+        "recall@1": [
+          0.8283238527934426,
+          0.016478333953669627
+        ],
+        "recall@3": [
+          0.9574896265136718,
+          0.007971753069001504
+        ],
+        "recall@5": [
+          0.9696326775534696,
+          0.006646448632825927
+        ],
+        "mrr": [
+          0.8937425477241602,
+          0.008084514044419034
+        ],
+        "update_acc": [
+          0.7,
+          0.11303883305208781
+        ],
+        "abstention_best_acc": [
+          0.8495890271780544,
+          0.012919970814645517
+        ],
+        "categorisation_acc": [
+          0.21333333333333335,
+          0.0541602560309064
+        ],
+        "latence_query_ms_med": [
+          20.899880999991183,
+          3.0988287391829847
+        ],
+        "tokens_estimes_full_md": [
+          9687.2,
+          23.743630724891254
+        ]
+      }
+    },
+    "1600": {
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "n_questions": 125,
+      "n_souvenirs": 1700,
+      "niveau1": {
+        "recall@1": [
+          0.8283238527934426,
+          0.016478333953669627
+        ],
+        "recall@3": [
+          0.9493675898202065,
+          0.013164490161717562
+        ],
+        "recall@5": [
+          0.965571659206737,
+          0.010550041556638533
+        ],
+        "mrr": [
+          0.8911547651363776,
+          0.008886210186178961
+        ],
+        "update_acc": [
+          0.7,
+          0.11303883305208781
+        ],
+        "abstention_best_acc": [
+          0.8495890271780544,
+          0.012919970814645517
+        ],
+        "categorisation_acc": [
+          0.2533333333333333,
+          0.08326663997864531
+        ],
+        "latence_query_ms_med": [
+          33.056081900076606,
+          5.588712815129214
+        ],
+        "tokens_estimes_full_md": [
+          17651.2,
+          14.918444959177213
+        ]
+      }
+    }
+  },
+  "runs": [
+    {
+      "scale": 50,
+      "seed": 0,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8484848484848485,
+        "recall@3": 0.9797979797979798,
+        "recall@5": 0.9797979797979798,
+        "mrr": 0.9124579124579124,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.95,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6726151515151515,
+        "score_top1_moy_sans_reponse": 0.4892923076923077,
+        "categorisation_acc": 0.3333333333333333,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "fait"
+          ]
+        ],
+        "latence_query_ms_med": 10.163242000032824,
+        "latence_write_ms_med": 74.12746049999441,
+        "tokens_estimes_full_md": 1856,
+        "n_souvenirs": 150
+      }
+    },
+    {
+      "scale": 50,
+      "seed": 1,
+      "n_questions": 127,
+      "niveau1": {
+        "recall@1": 0.8316831683168316,
+        "recall@3": 0.9801980198019802,
+        "recall@5": 0.9900990099009901,
+        "mrr": 0.9051155115511551,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9830508474576272,
+          "paraphrase": 0.9473684210526315,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "8/12",
+        "update_acc": 0.6666666666666666,
+        "abstention_best_acc": 0.8582677165354331,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6740534653465347,
+        "score_top1_moy_sans_reponse": 0.4994423076923077,
+        "categorisation_acc": 0.4666666666666667,
+        "categorisation_erreurs": [
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ]
+        ],
+        "latence_query_ms_med": 10.004396999988785,
+        "latence_write_ms_med": 70.57681999998522,
+        "tokens_estimes_full_md": 1856,
+        "n_souvenirs": 150
+      }
+    },
+    {
+      "scale": 50,
+      "seed": 2,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.8571428571428571,
+        "recall@3": 0.9591836734693877,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.9090136054421769,
+        "recall@3_par_type": {
+          "update": 0.9166666666666666,
+          "direct": 0.9814814814814815,
+          "paraphrase": 0.9166666666666666,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "10/12",
+        "update_acc": 0.8333333333333334,
+        "abstention_best_acc": 0.8387096774193549,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6598785714285714,
+        "score_top1_moy_sans_reponse": 0.4970538461538461,
+        "categorisation_acc": 0.3,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "tache"
+          ]
+        ],
+        "latence_query_ms_med": 10.135156499984532,
+        "latence_write_ms_med": 70.7989340000097,
+        "tokens_estimes_full_md": 1845,
+        "n_souvenirs": 150
+      }
+    },
+    {
+      "scale": 50,
+      "seed": 3,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.826530612244898,
+        "recall@3": 0.9693877551020408,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.8945578231292517,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.8629032258064516,
+        "abstention_seuil": 0.5437,
+        "score_top1_moy_repondable": 0.671004081632653,
+        "score_top1_moy_sans_reponse": 0.49682692307692305,
+        "categorisation_acc": 0.4,
+        "categorisation_erreurs": [
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f09",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f10",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f11",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f13",
+            "tache",
+            "contexte_projet"
+          ],
+          [
+            "f14",
+            "question_ouverte",
+            "contexte_projet"
+          ],
+          [
+            "f15",
+            "question_ouverte",
+            "contexte_projet"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f17",
+            "fait",
+            "question_ouverte"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "question_ouverte"
+          ],
+          [
+            "f20",
+            "preference",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f25",
+            "fait",
+            "question_ouverte"
+          ],
+          [
+            "f26",
+            "question_ouverte",
+            "contexte_projet"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 10.000886000000264,
+        "latence_write_ms_med": 70.27754200001368,
+        "tokens_estimes_full_md": 1859,
+        "n_souvenirs": 150
+      }
+    },
+    {
+      "scale": 50,
+      "seed": 4,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8080808080808081,
+        "recall@3": 0.9696969696969697,
+        "recall@5": 0.9797979797979798,
+        "mrr": 0.8919191919191919,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "6/12",
+        "update_acc": 0.5,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6730222222222222,
+        "score_top1_moy_sans_reponse": 0.5114384615384615,
+        "categorisation_acc": 0.4,
+        "categorisation_erreurs": [
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "decision"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "decision"
+          ],
+          [
+            "f12",
+            "tache",
+            "decision"
+          ],
+          [
+            "f13",
+            "tache",
+            "decision"
+          ],
+          [
+            "f15",
+            "question_ouverte",
+            "decision"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "preference"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "decision"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "decision"
+          ],
+          [
+            "f24",
+            "tache",
+            "decision"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f26",
+            "question_ouverte",
+            "decision"
+          ],
+          [
+            "f27",
+            "preference",
+            "fait"
+          ],
+          [
+            "f28",
+            "fait",
+            "tache"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 9.96945299999652,
+        "latence_write_ms_med": 68.02600249997681,
+        "tokens_estimes_full_md": 1826,
+        "n_souvenirs": 150
+      }
+    },
+    {
+      "scale": 100,
+      "seed": 0,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8484848484848485,
+        "recall@3": 0.9797979797979798,
+        "recall@5": 0.9797979797979798,
+        "mrr": 0.9122174122174123,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.95,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6726151515151515,
+        "score_top1_moy_sans_reponse": 0.4927076923076923,
+        "categorisation_acc": 0.3333333333333333,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "tache"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "preference"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "decision"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "tache"
+          ]
+        ],
+        "latence_query_ms_med": 10.73348500000293,
+        "latence_write_ms_med": 69.44536500000709,
+        "tokens_estimes_full_md": 2391,
+        "n_souvenirs": 200
+      }
+    },
+    {
+      "scale": 100,
+      "seed": 1,
+      "n_questions": 127,
+      "niveau1": {
+        "recall@1": 0.8316831683168316,
+        "recall@3": 0.9801980198019802,
+        "recall@5": 0.9801980198019802,
+        "mrr": 0.9022277227722773,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9830508474576272,
+          "paraphrase": 0.9473684210526315,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "8/12",
+        "update_acc": 0.6666666666666666,
+        "abstention_best_acc": 0.8582677165354331,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6739277227722772,
+        "score_top1_moy_sans_reponse": 0.5032576923076924,
+        "categorisation_acc": 0.4666666666666667,
+        "categorisation_erreurs": [
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ]
+        ],
+        "latence_query_ms_med": 10.524406000001818,
+        "latence_write_ms_med": 70.40381249998973,
+        "tokens_estimes_full_md": 2385,
+        "n_souvenirs": 200
+      }
+    },
+    {
+      "scale": 100,
+      "seed": 2,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.8571428571428571,
+        "recall@3": 0.9591836734693877,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.9085884353741497,
+        "recall@3_par_type": {
+          "update": 0.9166666666666666,
+          "direct": 0.9814814814814815,
+          "paraphrase": 0.9166666666666666,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "10/12",
+        "update_acc": 0.8333333333333334,
+        "abstention_best_acc": 0.8387096774193549,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6599897959183674,
+        "score_top1_moy_sans_reponse": 0.4979461538461538,
+        "categorisation_acc": 0.36666666666666664,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "tache"
+          ],
+          [
+            "f20",
+            "preference",
+            "fait"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "tache"
+          ]
+        ],
+        "latence_query_ms_med": 10.57060900001261,
+        "latence_write_ms_med": 72.89198149999265,
+        "tokens_estimes_full_md": 2397,
+        "n_souvenirs": 200
+      }
+    },
+    {
+      "scale": 100,
+      "seed": 3,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.826530612244898,
+        "recall@3": 0.9693877551020408,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.8943148688046647,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.8629032258064516,
+        "abstention_seuil": 0.5437,
+        "score_top1_moy_repondable": 0.671004081632653,
+        "score_top1_moy_sans_reponse": 0.4988576923076923,
+        "categorisation_acc": 0.4666666666666667,
+        "categorisation_erreurs": [
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f09",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f10",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f11",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f13",
+            "tache",
+            "contexte_projet"
+          ],
+          [
+            "f14",
+            "question_ouverte",
+            "contexte_projet"
+          ],
+          [
+            "f15",
+            "question_ouverte",
+            "contexte_projet"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f20",
+            "preference",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "contexte_projet"
+          ],
+          [
+            "f26",
+            "question_ouverte",
+            "contexte_projet"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 15.061900500029424,
+        "latence_write_ms_med": 70.44353249997926,
+        "tokens_estimes_full_md": 2399,
+        "n_souvenirs": 200
+      }
+    },
+    {
+      "scale": 100,
+      "seed": 4,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8080808080808081,
+        "recall@3": 0.9696969696969697,
+        "recall@5": 0.9696969696969697,
+        "mrr": 0.8913419913419913,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "6/12",
+        "update_acc": 0.5,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6736373737373738,
+        "score_top1_moy_sans_reponse": 0.5133,
+        "categorisation_acc": 0.3,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "contexte_projet"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "decision"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f28",
+            "fait",
+            "tache"
+          ]
+        ],
+        "latence_query_ms_med": 10.53305100003854,
+        "latence_write_ms_med": 70.14504350001971,
+        "tokens_estimes_full_md": 2365,
+        "n_souvenirs": 200
+      }
+    },
+    {
+      "scale": 200,
+      "seed": 0,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8383838383838383,
+        "recall@3": 0.9797979797979798,
+        "recall@5": 0.9797979797979798,
+        "mrr": 0.9057239057239057,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.95,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6733858585858585,
+        "score_top1_moy_sans_reponse": 0.4941923076923077,
+        "categorisation_acc": 0.36666666666666664,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "tache"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 11.710278000009566,
+        "latence_write_ms_med": 70.85112900000468,
+        "tokens_estimes_full_md": 3468,
+        "n_souvenirs": 300
+      }
+    },
+    {
+      "scale": 200,
+      "seed": 1,
+      "n_questions": 127,
+      "niveau1": {
+        "recall@1": 0.8316831683168316,
+        "recall@3": 0.9702970297029703,
+        "recall@5": 0.9801980198019802,
+        "mrr": 0.9011551155115511,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9661016949152542,
+          "paraphrase": 0.9473684210526315,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "8/12",
+        "update_acc": 0.6666666666666666,
+        "abstention_best_acc": 0.8582677165354331,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6739326732673268,
+        "score_top1_moy_sans_reponse": 0.5035923076923077,
+        "categorisation_acc": 0.16666666666666666,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "tache"
+          ],
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f03",
+            "fait",
+            "tache"
+          ],
+          [
+            "f04",
+            "preference",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "tache"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "fait"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 11.893518999954722,
+        "latence_write_ms_med": 70.69886099998257,
+        "tokens_estimes_full_md": 3460,
+        "n_souvenirs": 300
+      }
+    },
+    {
+      "scale": 200,
+      "seed": 2,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.8571428571428571,
+        "recall@3": 0.9591836734693877,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.907312925170068,
+        "recall@3_par_type": {
+          "update": 0.9166666666666666,
+          "direct": 0.9814814814814815,
+          "paraphrase": 0.9166666666666666,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "10/12",
+        "update_acc": 0.8333333333333334,
+        "abstention_best_acc": 0.8387096774193549,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6609734693877551,
+        "score_top1_moy_sans_reponse": 0.4984423076923077,
+        "categorisation_acc": 0.4666666666666667,
+        "categorisation_erreurs": [
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "fait"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "preference"
+          ]
+        ],
+        "latence_query_ms_med": 12.105017500005033,
+        "latence_write_ms_med": 72.26705549996382,
+        "tokens_estimes_full_md": 3470,
+        "n_souvenirs": 300
+      }
+    },
+    {
+      "scale": 200,
+      "seed": 3,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.826530612244898,
+        "recall@3": 0.9693877551020408,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.8928571428571429,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.8629032258064516,
+        "abstention_seuil": 0.5437,
+        "score_top1_moy_repondable": 0.6714255102040816,
+        "score_top1_moy_sans_reponse": 0.5004692307692308,
+        "categorisation_acc": 0.36666666666666664,
+        "categorisation_erreurs": [
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "preference"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "preference"
+          ]
+        ],
+        "latence_query_ms_med": 16.79379750004273,
+        "latence_write_ms_med": 71.56546749999393,
+        "tokens_estimes_full_md": 3470,
+        "n_souvenirs": 300
+      }
+    },
+    {
+      "scale": 200,
+      "seed": 4,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8080808080808081,
+        "recall@3": 0.9696969696969697,
+        "recall@5": 0.9696969696969697,
+        "mrr": 0.8872053872053872,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "6/12",
+        "update_acc": 0.5,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6734181818181818,
+        "score_top1_moy_sans_reponse": 0.5132615384615384,
+        "categorisation_acc": 0.26666666666666666,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "contexte_projet"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f28",
+            "fait",
+            "tache"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ]
+        ],
+        "latence_query_ms_med": 11.930067000093914,
+        "latence_write_ms_med": 67.79836600009048,
+        "tokens_estimes_full_md": 3432,
+        "n_souvenirs": 300
+      }
+    },
+    {
+      "scale": 400,
+      "seed": 0,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8282828282828283,
+        "recall@3": 0.9797979797979798,
+        "recall@5": 0.9797979797979798,
+        "mrr": 0.898989898989899,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.95,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.673530303030303,
+        "score_top1_moy_sans_reponse": 0.4941923076923077,
+        "categorisation_acc": 0.36666666666666664,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 14.180495999994491,
+        "latence_write_ms_med": 70.30685800003766,
+        "tokens_estimes_full_md": 5597,
+        "n_souvenirs": 500
+      }
+    },
+    {
+      "scale": 400,
+      "seed": 1,
+      "n_questions": 127,
+      "niveau1": {
+        "recall@1": 0.8316831683168316,
+        "recall@3": 0.9702970297029703,
+        "recall@5": 0.9801980198019802,
+        "mrr": 0.9001650165016502,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9661016949152542,
+          "paraphrase": 0.9473684210526315,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "8/12",
+        "update_acc": 0.6666666666666666,
+        "abstention_best_acc": 0.8582677165354331,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6743039603960396,
+        "score_top1_moy_sans_reponse": 0.5040307692307692,
+        "categorisation_acc": 0.16666666666666666,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "tache"
+          ],
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f03",
+            "fait",
+            "tache"
+          ],
+          [
+            "f04",
+            "preference",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "tache"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "tache"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "tache"
+          ]
+        ],
+        "latence_query_ms_med": 14.24562700003662,
+        "latence_write_ms_med": 67.69273250000651,
+        "tokens_estimes_full_md": 5554,
+        "n_souvenirs": 500
+      }
+    },
+    {
+      "scale": 400,
+      "seed": 2,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.8571428571428571,
+        "recall@3": 0.9591836734693877,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.907312925170068,
+        "recall@3_par_type": {
+          "update": 0.9166666666666666,
+          "direct": 0.9814814814814815,
+          "paraphrase": 0.9166666666666666,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "10/12",
+        "update_acc": 0.8333333333333334,
+        "abstention_best_acc": 0.8387096774193549,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6609448979591837,
+        "score_top1_moy_sans_reponse": 0.5011653846153846,
+        "categorisation_acc": 0.26666666666666666,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 14.401493500031393,
+        "latence_write_ms_med": 64.726826000026,
+        "tokens_estimes_full_md": 5545,
+        "n_souvenirs": 500
+      }
+    },
+    {
+      "scale": 400,
+      "seed": 3,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.826530612244898,
+        "recall@3": 0.9591836734693877,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.8914965986394557,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.8629032258064516,
+        "abstention_seuil": 0.5437,
+        "score_top1_moy_repondable": 0.6712571428571429,
+        "score_top1_moy_sans_reponse": 0.5007730769230769,
+        "categorisation_acc": 0.4666666666666667,
+        "categorisation_erreurs": [
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "fait"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "preference"
+          ]
+        ],
+        "latence_query_ms_med": 14.509671999974216,
+        "latence_write_ms_med": 54.02740899995706,
+        "tokens_estimes_full_md": 5543,
+        "n_souvenirs": 500
+      }
+    },
+    {
+      "scale": 400,
+      "seed": 4,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8080808080808081,
+        "recall@3": 0.9595959595959596,
+        "recall@5": 0.9696969696969697,
+        "mrr": 0.8863636363636364,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "6/12",
+        "update_acc": 0.5,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6736636363636364,
+        "score_top1_moy_sans_reponse": 0.5151384615384615,
+        "categorisation_acc": 0.23333333333333334,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "tache"
+          ],
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f03",
+            "fait",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f17",
+            "fait",
+            "tache"
+          ],
+          [
+            "f18",
+            "fait",
+            "tache"
+          ],
+          [
+            "f19",
+            "fait",
+            "tache"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "decision"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "preference"
+          ]
+        ],
+        "latence_query_ms_med": 14.147515999979987,
+        "latence_write_ms_med": 53.316198499999246,
+        "tokens_estimes_full_md": 5546,
+        "n_souvenirs": 500
+      }
+    },
+    {
+      "scale": 800,
+      "seed": 0,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8181818181818182,
+        "recall@3": 0.9595959595959596,
+        "recall@5": 0.9696969696969697,
+        "mrr": 0.8876262626262627,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9827586206896551,
+          "paraphrase": 0.85,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6735959595959596,
+        "score_top1_moy_sans_reponse": 0.4941923076923077,
+        "categorisation_acc": 0.3,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "tache"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 19.19236200001251,
+        "latence_write_ms_med": 57.29818449998447,
+        "tokens_estimes_full_md": 9712,
+        "n_souvenirs": 900
+      }
+    },
+    {
+      "scale": 800,
+      "seed": 1,
+      "n_questions": 127,
+      "niveau1": {
+        "recall@1": 0.8316831683168316,
+        "recall@3": 0.9702970297029703,
+        "recall@5": 0.9801980198019802,
+        "mrr": 0.9001650165016502,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9661016949152542,
+          "paraphrase": 0.9473684210526315,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "8/12",
+        "update_acc": 0.6666666666666666,
+        "abstention_best_acc": 0.8582677165354331,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6743039603960396,
+        "score_top1_moy_sans_reponse": 0.5040307692307692,
+        "categorisation_acc": 0.23333333333333334,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "tache"
+          ],
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "contexte_projet"
+          ],
+          [
+            "f17",
+            "fait",
+            "tache"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f28",
+            "fait",
+            "tache"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "preference"
+          ]
+        ],
+        "latence_query_ms_med": 19.2333969999936,
+        "latence_write_ms_med": 56.10016799994355,
+        "tokens_estimes_full_md": 9682,
+        "n_souvenirs": 900
+      }
+    },
+    {
+      "scale": 800,
+      "seed": 2,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.8571428571428571,
+        "recall@3": 0.9489795918367347,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.9064625850340136,
+        "recall@3_par_type": {
+          "update": 0.9166666666666666,
+          "direct": 0.9629629629629629,
+          "paraphrase": 0.9166666666666666,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "10/12",
+        "update_acc": 0.8333333333333334,
+        "abstention_best_acc": 0.8387096774193549,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6609448979591837,
+        "score_top1_moy_sans_reponse": 0.5011653846153846,
+        "categorisation_acc": 0.2,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 27.091612999981862,
+        "latence_write_ms_med": 56.576961000018855,
+        "tokens_estimes_full_md": 9703,
+        "n_souvenirs": 900
+      }
+    },
+    {
+      "scale": 800,
+      "seed": 3,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.826530612244898,
+        "recall@3": 0.9489795918367347,
+        "recall@5": 0.9591836734693877,
+        "mrr": 0.888095238095238,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.85,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.8709677419354839,
+        "abstention_seuil": 0.5437,
+        "score_top1_moy_repondable": 0.6717377551020408,
+        "score_top1_moy_sans_reponse": 0.5015884615384615,
+        "categorisation_acc": 0.2,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "preference"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "tache"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 19.408662999978787,
+        "latence_write_ms_med": 55.59970249998969,
+        "tokens_estimes_full_md": 9695,
+        "n_souvenirs": 900
+      }
+    },
+    {
+      "scale": 800,
+      "seed": 4,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8080808080808081,
+        "recall@3": 0.9595959595959596,
+        "recall@5": 0.9696969696969697,
+        "mrr": 0.8863636363636364,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "6/12",
+        "update_acc": 0.5,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6740050505050506,
+        "score_top1_moy_sans_reponse": 0.5151384615384615,
+        "categorisation_acc": 0.13333333333333333,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "tache"
+          ],
+          [
+            "f17",
+            "fait",
+            "tache"
+          ],
+          [
+            "f18",
+            "fait",
+            "tache"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 19.573369999989154,
+        "latence_write_ms_med": 56.0622984999668,
+        "tokens_estimes_full_md": 9644,
+        "n_souvenirs": 900
+      }
+    },
+    {
+      "scale": 1600,
+      "seed": 0,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8181818181818182,
+        "recall@3": 0.9393939393939394,
+        "recall@5": 0.9595959595959596,
+        "mrr": 0.8811447811447811,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.8,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6735888888888889,
+        "score_top1_moy_sans_reponse": 0.4941923076923077,
+        "categorisation_acc": 0.3333333333333333,
+        "categorisation_erreurs": [
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f04",
+            "preference",
+            "fait"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "preference"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 44.18311800009178,
+        "latence_write_ms_med": 61.4706355000294,
+        "tokens_estimes_full_md": 17631,
+        "n_souvenirs": 1700
+      }
+    },
+    {
+      "scale": 1600,
+      "seed": 1,
+      "n_questions": 127,
+      "niveau1": {
+        "recall@1": 0.8316831683168316,
+        "recall@3": 0.9702970297029703,
+        "recall@5": 0.9801980198019802,
+        "mrr": 0.9001650165016502,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9661016949152542,
+          "paraphrase": 0.9473684210526315,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "8/12",
+        "update_acc": 0.6666666666666666,
+        "abstention_best_acc": 0.8582677165354331,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6743039603960396,
+        "score_top1_moy_sans_reponse": 0.5040307692307692,
+        "categorisation_acc": 0.23333333333333334,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "tache"
+          ],
+          [
+            "f02",
+            "fait",
+            "tache"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f12",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "contexte_projet"
+          ],
+          [
+            "f17",
+            "fait",
+            "tache"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f28",
+            "fait",
+            "tache"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "preference"
+          ]
+        ],
+        "latence_query_ms_med": 29.740216999925906,
+        "latence_write_ms_med": 61.89918600011879,
+        "tokens_estimes_full_md": 17645,
+        "n_souvenirs": 1700
+      }
+    },
+    {
+      "scale": 1600,
+      "seed": 2,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.8571428571428571,
+        "recall@3": 0.9387755102040817,
+        "recall@5": 0.9693877551020408,
+        "mrr": 0.9034013605442177,
+        "recall@3_par_type": {
+          "update": 0.9166666666666666,
+          "direct": 0.9629629629629629,
+          "paraphrase": 0.9166666666666666,
+          "history": 0.875
+        },
+        "update_gold_avant_ancien": "10/12",
+        "update_acc": 0.8333333333333334,
+        "abstention_best_acc": 0.8387096774193549,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6607765306122448,
+        "score_top1_moy_sans_reponse": 0.5011653846153846,
+        "categorisation_acc": 0.36666666666666664,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "fait"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f27",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 31.278530500117085,
+        "latence_write_ms_med": 62.19533700004831,
+        "tokens_estimes_full_md": 17673,
+        "n_souvenirs": 1700
+      }
+    },
+    {
+      "scale": 1600,
+      "seed": 3,
+      "n_questions": 124,
+      "niveau1": {
+        "recall@1": 0.826530612244898,
+        "recall@3": 0.9387755102040817,
+        "recall@5": 0.9489795918367347,
+        "mrr": 0.8852040816326531,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.8,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "9/12",
+        "update_acc": 0.75,
+        "abstention_best_acc": 0.8709677419354839,
+        "abstention_seuil": 0.5437,
+        "score_top1_moy_repondable": 0.6719948979591837,
+        "score_top1_moy_sans_reponse": 0.5022846153846153,
+        "categorisation_acc": 0.16666666666666666,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "contexte_projet"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "contexte_projet"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "tache"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "fait"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 30.02070700006243,
+        "latence_write_ms_med": 61.983556999962275,
+        "tokens_estimes_full_md": 17663,
+        "n_souvenirs": 1700
+      }
+    },
+    {
+      "scale": 1600,
+      "seed": 4,
+      "n_questions": 125,
+      "niveau1": {
+        "recall@1": 0.8080808080808081,
+        "recall@3": 0.9595959595959596,
+        "recall@5": 0.9696969696969697,
+        "mrr": 0.8858585858585859,
+        "recall@3_par_type": {
+          "update": 1.0,
+          "direct": 0.9655172413793104,
+          "paraphrase": 0.9,
+          "history": 1.0
+        },
+        "update_gold_avant_ancien": "6/12",
+        "update_acc": 0.5,
+        "abstention_best_acc": 0.84,
+        "abstention_seuil": 0.5022,
+        "score_top1_moy_repondable": 0.6740242424242424,
+        "score_top1_moy_sans_reponse": 0.5145961538461539,
+        "categorisation_acc": 0.16666666666666666,
+        "categorisation_erreurs": [
+          [
+            "f01",
+            "fait",
+            "preference"
+          ],
+          [
+            "f02",
+            "fait",
+            "preference"
+          ],
+          [
+            "f03",
+            "fait",
+            "preference"
+          ],
+          [
+            "f05",
+            "preference",
+            "decision"
+          ],
+          [
+            "f06",
+            "preference",
+            "decision"
+          ],
+          [
+            "f07",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f08",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f09",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f10",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f11",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f13",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f16",
+            "fait",
+            "contexte_projet"
+          ],
+          [
+            "f17",
+            "fait",
+            "preference"
+          ],
+          [
+            "f18",
+            "fait",
+            "preference"
+          ],
+          [
+            "f19",
+            "fait",
+            "decision"
+          ],
+          [
+            "f20",
+            "preference",
+            "tache"
+          ],
+          [
+            "f21",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f22",
+            "contexte_projet",
+            "question_ouverte"
+          ],
+          [
+            "f23",
+            "decision",
+            "question_ouverte"
+          ],
+          [
+            "f24",
+            "tache",
+            "question_ouverte"
+          ],
+          [
+            "f25",
+            "fait",
+            "tache"
+          ],
+          [
+            "f27",
+            "preference",
+            "decision"
+          ],
+          [
+            "f28",
+            "fait",
+            "preference"
+          ],
+          [
+            "f29",
+            "contexte_projet",
+            "fait"
+          ],
+          [
+            "f30",
+            "fait",
+            "decision"
+          ]
+        ],
+        "latence_query_ms_med": 30.057837000185827,
+        "latence_write_ms_med": 62.959206499954234,
+        "tokens_estimes_full_md": 17644,
+        "n_souvenirs": 1700
+      }
+    }
+  ]
+}

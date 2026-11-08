@@ -1,0 +1,16 @@
+[
+  {
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "ok": true,
+    "minutes": 45.8,
+    "reason": "",
+    "log": "/kaggle/working/cosmos/benchmark/results/logs/Qwen__Qwen3-4B-Instruct-2507.log"
+  },
+  {
+    "model": "Qwen/Qwen3-8B",
+    "ok": true,
+    "minutes": 56.1,
+    "reason": "",
+    "log": "/kaggle/working/cosmos/benchmark/results/logs/Qwen__Qwen3-8B.log"
+  }
+]
