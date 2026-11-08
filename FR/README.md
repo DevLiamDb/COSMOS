@@ -130,6 +130,8 @@ COSMOS n'est pas meilleur partout : il perd face au fichier complet sur Llama 3.
 ## Installation
 
 > Prérequis : **Python 3.10+** et **git** (pas de Git ? télécharge le ZIP depuis GitHub).
+>
+> Testé sur **Windows**. Linux et macOS ne sont pas encore testés. Sur Ubuntu/Debian, `install.py` a d'abord besoin du module `venv` : `sudo apt install python3-venv`.
 
 ```bash
 git clone https://github.com/DevLiamDb/COSMOS.git
@@ -211,7 +213,7 @@ Un chat dans le terminal qui utilise COSMOS comme mémoire (il faut ta propre cl
 .venv/Scripts/python -m unittest discover -s tests -v
 ```
 
-Sur macOS et Linux, utilise `.venv/bin/python`.
+Sur Linux ou macOS (pas encore testés), utilise `.venv/bin/python`.
 
 ---
 

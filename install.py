@@ -20,6 +20,14 @@ def venv_python() -> Path:
     return VENV / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
 
 
+def venv_ready() -> bool:
+    try:
+        return subprocess.call([str(venv_python()), "-m", "pip", "--version"],
+                               stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL) == 0
+    except OSError:
+        return False
+
+
 def claude_config_path() -> Path:
     if os.name == "nt":
         return Path(os.environ.get("APPDATA", Path.home())) / "Claude" / "claude_desktop_config.json"
@@ -54,9 +62,19 @@ def main() -> int:
         print("COSMOS demande Python 3.10 ou plus recent.")
         return 1
 
-    if not venv_python().exists():
+    if not venv_ready():
         print("1/3 Creation de l'environnement .venv...")
-        venv.EnvBuilder(with_pip=True).create(VENV)
+        shutil.rmtree(VENV, ignore_errors=True)
+        try:
+            venv.EnvBuilder(with_pip=True).create(VENV)
+        except (subprocess.CalledProcessError, ImportError, OSError, SystemExit):
+            pass  # venv affiche lui-meme la cause ; on verifie le resultat juste apres
+        if not venv_ready():
+            shutil.rmtree(VENV, ignore_errors=True)
+            print("Impossible de creer l'environnement .venv.")
+            if sys.platform.startswith("linux"):
+                print("Sur Debian/Ubuntu, installe d'abord le module venv : sudo apt install python3-venv")
+            return 1
     print("2/3 Installation des dependances (quelques minutes)...")
     subprocess.check_call([str(venv_python()), "-m", "pip", "install", "-q", "-r", str(ROOT / "requirements.txt")])
 
