@@ -17,7 +17,7 @@
 ![Stockage](../assets/badges/storage-fr.svg)
 ![Outils](../assets/badges/tools-fr.svg)
 ![OS](../assets/badges/os.svg)
-[![License](../assets/badges/license.svg)](../LICENSE)
+[![License](../assets/badges/license.svg)](LICENSE.md)
 
 <br>
 
@@ -316,7 +316,7 @@ Faiblement : 21 à 39 % de bonnes réponses sur notre jeu de test. Tu peux toujo
 ❌ Interdit de vendre COSMOS sans autorisation écrite
 ❌ Interdit de se faire passer pour son créateur
 
-Voir [LICENSE](../LICENSE) pour les conditions complètes.
+Voir [LICENSE.md](LICENSE.md) pour les conditions complètes.
 
 ---
 
