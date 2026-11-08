@@ -17,6 +17,7 @@
 ![Stockage](https://img.shields.io/badge/Stockage-SQLite_local-003B57?logo=sqlite&logoColor=white)
 ![Outils](https://img.shields.io/badge/outils_MCP-22-F5B942)
 ![OS](https://img.shields.io/badge/OS-Windows%20%7C%20macOS%20%7C%20Linux-0078D4)
+[![License](https://img.shields.io/badge/License-Personal_Use-red)](../LICENSE)
 
 <br>
 
@@ -302,6 +303,20 @@ Non. COSMOS les réindexe automatiquement à la prochaine ouverture de la base.
 Faiblement : 21 à 39 % de bonnes réponses sur notre jeu de test. Tu peux toujours imposer une catégorie avec `node_type` et fusionner les catégories ensuite.
 
 </details>
+
+---
+
+## Licence
+
+**COSMOS Personal Use License v1.0**
+
+✅ Libre d'utilisation : personnel, éducatif, recherche
+✅ Modification et partage autorisés, en citant l'auteur d'origine
+✅ Tes souvenirs et ton `cosmos.db` t'appartiennent
+❌ Interdit de vendre COSMOS sans autorisation écrite
+❌ Interdit de se faire passer pour son créateur
+
+Voir [LICENSE](../LICENSE) pour les conditions complètes.
 
 ---
 

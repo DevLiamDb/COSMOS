@@ -17,6 +17,7 @@
 ![Storage](https://img.shields.io/badge/Storage-local_SQLite-003B57?logo=sqlite&logoColor=white)
 ![Tools](https://img.shields.io/badge/MCP_tools-22-F5B942)
 ![OS](https://img.shields.io/badge/OS-Windows%20%7C%20macOS%20%7C%20Linux-0078D4)
+[![License](https://img.shields.io/badge/License-Personal_Use-red)](LICENSE)
 
 <br>
 
@@ -302,6 +303,20 @@ No. COSMOS re-indexes them automatically the next time the database opens.
 Weak: 21 to 39% correct on our test set. You can always force a category with `node_type`, and merge categories later.
 
 </details>
+
+---
+
+## License
+
+**COSMOS Personal Use License v1.0**
+
+✅ Free to use: personal, educational, research
+✅ Modification and sharing allowed, with credit to the original author
+✅ Your memories and your `cosmos.db` are yours
+❌ Cannot sell COSMOS without written permission
+❌ Cannot claim you created it
+
+See [LICENSE](LICENSE) for the full terms.
 
 ---
 
