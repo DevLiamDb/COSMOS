@@ -218,6 +218,25 @@ Sur Linux ou macOS (pas encore testés), utilise `.venv/bin/python`.
 
 ---
 
+## COSMOS Manager (optionnel)
+
+Un petit panneau de contrôle pour **garder COSMOS allumé** et le gérer. Rien à installer en plus : il tourne avec le même Python.
+
+```bash
+cosmos-manager.bat        # Windows
+./cosmos-manager.sh       # macOS / Linux
+```
+
+Il ouvre http://127.0.0.1:8770 :
+
+- **Overview :** ta mémoire en chiffres, et des interrupteurs pour démarrer l'**app web** et le **serveur MCP**. Ce que tu démarres reste allumé : s'il s'arrête, le gestionnaire le relance.
+- **COSMOS :** l'app web affichée dans le panneau. Les vues 2D et 3D, la recherche et l'édition sont celles de l'app web.
+- **Storage :** sauvegardes avec restauration en un clic, export JSON ou Markdown, optimisation, ouverture du dossier de données, tout effacer (une sauvegarde est toujours faite avant).
+
+L'app web demande [Node.js](https://nodejs.org) ; un bouton **Set up** installe ses dépendances. Détails dans [`manager/README.md`](../manager/README.md).
+
+---
+
 ## Le modèle d'IA : Polaris
 
 COSMOS contient **un modèle d'IA à lui**, utilisé uniquement pour la recherche. Il n'écrit pas de texte et ne te parle pas : il transforme une phrase en une liste de 384 nombres (un vecteur) pour que deux phrases de même sens se retrouvent proches.

@@ -87,6 +87,7 @@ def main() -> int:
               "lancement, ou relance `python install.py` plus tard.")
 
     print("\nCOSMOS est installe.")
+    print("Gestionnaire (garder COSMOS allume, sauvegardes) : " + ("cosmos-manager.bat" if os.name == "nt" else "./cosmos-manager.sh"))
     if args.configure:
         configure_claude()
     else:

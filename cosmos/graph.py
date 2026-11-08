@@ -53,6 +53,10 @@ def _color_for(index: int) -> str:
     return _PALETTE[index % len(_PALETTE)]
 
 
+# Polaris moved from liamlitle/polaris to DevLiamDb/polaris; vectors made under either name are the same model.
+_MODEL_ALIASES = {"liamlitle/polaris": "DevLiamDb/polaris"}
+
+
 class CosmosEngine:
     def __init__(self, db_path: str = "cosmos.db"):
         self.db_path = db_path
@@ -75,7 +79,10 @@ class CosmosEngine:
         COSMOS qui ne le notait pas encore), on reindexe une fois, ici, plutot
         que de laisser query() comparer des vecteurs incompatibles en silence."""
         row = self.conn.execute("SELECT value FROM meta WHERE key = 'embedding_model'").fetchone()
-        if row is not None and row["value"] == embeddings.MODEL_NAME:
+        stored = _MODEL_ALIASES.get(row["value"], row["value"]) if row is not None else None
+        if stored == embeddings.MODEL_NAME:
+            if row["value"] != stored:  # same model under its former Hugging Face name: no re-index needed
+                self._set_embedding_model()
             return
         n = self.conn.execute("SELECT COUNT(*) AS n FROM nodes").fetchone()["n"]
         if n:

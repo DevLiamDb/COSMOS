@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COSMOS Manager</title>
+  <meta name="theme-color" content="#080a0f">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-token="__TOKEN__">
+  <header class="top">
+    <div class="brand"><span class="star" aria-hidden="true">✦</span><b>COSMOS</b><span class="sub">Manager</span></div>
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button role="tab" data-tab="overview" class="on">Overview</button>
+      <button role="tab" data-tab="app">COSMOS</button>
+      <button role="tab" data-tab="storage">Storage</button>
+    </nav>
+    <div id="pill" class="pill off"><i></i><span>Off</span></div>
+  </header>
+
+  <main>
+    <section id="tab-overview" class="tab on">
+      <div class="grid">
+        <div class="card span2">
+          <h2>Your memory</h2>
+          <div class="stats" id="stats"></div>
+          <p class="muted" id="model-line"></p>
+        </div>
+
+        <div class="card">
+          <h2>Web app <span class="muted tag">2D, 3D and editing</span></h2>
+          <p class="muted">The COSMOS app: your memory as a sky of stars and planets, in 2D or 3D, with search, filters and direct editing.</p>
+          <div id="web-problem" class="note hidden"></div>
+          <div class="row">
+            <button class="btn primary" id="web-toggle">Start</button>
+            <button class="btn" id="web-open">Open</button>
+            <button class="btn" id="web-setup">Set up</button>
+          </div>
+          <dl class="kv" id="web-info"></dl>
+          <details class="logs"><summary id="web-logs-title">Log</summary><pre id="web-logs">No output yet.</pre></details>
+        </div>
+
+        <div class="card">
+          <h2>MCP server <span class="muted tag">for connectors</span></h2>
+          <p class="muted">Claude Desktop starts COSMOS by itself. Turn this on for connectors and other tools that need COSMOS to stay available.</p>
+          <div class="row">
+            <button class="btn primary" id="mcp-toggle">Start</button>
+            <button class="btn" id="mcp-restart">Restart</button>
+          </div>
+          <dl class="kv" id="mcp-info"></dl>
+          <details class="logs"><summary>Log</summary><pre id="mcp-logs">No output yet.</pre></details>
+        </div>
+
+        <div class="card span2">
+          <div class="row spread">
+            <div><h2>Keep everything on</h2>
+              <p class="muted nm">If one of them stops, the manager starts it again. Closing the manager stops both.</p></div>
+            <div class="row nm">
+              <button class="btn primary" id="all-on">Start both</button>
+              <button class="btn" id="all-off">Stop both</button>
+              <button class="btn" id="qa-backup">Back up now</button>
+              <button class="btn" id="qa-folder">Open data folder</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-app" class="tab frame">
+      <iframe id="app-frame" title="COSMOS web app" hidden></iframe>
+      <div id="app-empty" class="empty">
+        <b>The web app is off</b>
+        <span>Start it to see your memory in 2D or 3D and edit it.</span>
+        <button class="btn primary" id="app-start">Start the web app</button>
+      </div>
+      <a id="app-pop" class="pop hidden" target="_blank" rel="noopener">Open in its own tab ↗</a>
+    </section>
+
+    <section id="tab-storage" class="tab">
+      <div class="grid">
+        <div class="card">
+          <h2>Database</h2>
+          <dl class="kv" id="db-info"></dl>
+          <div class="row">
+            <button class="btn" id="st-folder">Open data folder</button>
+            <button class="btn" id="st-opt" title="Compacts the file after deletions">Optimize</button>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Export</h2>
+          <p class="muted">A copy you can read anywhere. Search vectors are not included.</p>
+          <div class="row">
+            <button class="btn" id="ex-json">Download JSON</button>
+            <button class="btn" id="ex-md">Download Markdown</button>
+          </div>
+        </div>
+        <div class="card span2">
+          <h2>Backups <button class="btn small" id="bk-new">Back up now</button></h2>
+          <p class="muted" id="bk-info"></p>
+          <div id="bk-list"></div>
+        </div>
+        <div class="card span2 danger">
+          <h2>Danger zone</h2>
+          <p class="muted">Deletes every memory, link and category. A backup is made first, so you can restore it from the list above.</p>
+          <div class="row">
+            <input id="reset-confirm" placeholder="Type DELETE to enable" autocomplete="off">
+            <button class="btn bad" id="reset-go" disabled>Erase everything</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

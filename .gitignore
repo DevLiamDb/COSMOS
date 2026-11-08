@@ -32,4 +32,7 @@ models/
 cosmos-embed/
 training/out/
 
+# gestionnaire : jeton local et sauvegardes
+.cosmos-manager.json
+backups/
 .venv/

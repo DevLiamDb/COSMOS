@@ -218,6 +218,25 @@ On Linux or macOS (not tested yet), use `.venv/bin/python`.
 
 ---
 
+## COSMOS Manager (optional)
+
+A tiny control panel to **keep COSMOS on** and manage it. No extra install: it runs with the same Python.
+
+```bash
+cosmos-manager.bat        # Windows
+./cosmos-manager.sh       # macOS / Linux
+```
+
+It opens http://127.0.0.1:8770:
+
+- **Overview:** your memory in numbers, and switches to start the **web app** and the **MCP server**. Whatever you start is kept on: if it stops, the manager starts it again.
+- **COSMOS:** the web app shown inside the panel. The 2D and 3D views, search and editing are the web app's own.
+- **Storage:** backups with one-click restore, export to JSON or Markdown, optimize, open the data folder, erase everything (a backup is always made first).
+
+The web app needs [Node.js](https://nodejs.org); a **Set up** button installs its dependencies. More in [`manager/README.md`](manager/README.md).
+
+---
+
 ## The AI model: Polaris
 
 COSMOS contains **an AI model of its own**, used for search only. It does not write text and it does not talk to you: it turns a sentence into a list of 384 numbers (a vector) so that sentences with the same meaning end up close to each other.

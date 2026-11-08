@@ -9,3 +9,7 @@
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
 *.7z filter=lfs diff=lfs merge=lfs -text
 *.rar filter=lfs diff=lfs merge=lfs -text
+
+# lanceurs : fins de ligne fixes
+*.sh text eol=lf
+*.bat text eol=crlf
