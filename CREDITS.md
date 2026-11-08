@@ -60,6 +60,7 @@ The training memories, the benchmark questions and the test texts were also writ
 - [SQLite](https://www.sqlite.org/) for storage, [NumPy](https://numpy.org/) for vectors
 - Web app: [Next.js](https://nextjs.org/), [React](https://react.dev/), [Three.js](https://threejs.org/), [Tailwind CSS](https://tailwindcss.com/), [shadcn/ui](https://ui.shadcn.com/), [Prisma](https://www.prisma.io/), [better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
 - Graph view: [D3.js](https://d3js.org/)
+- Fonts: [Space Grotesk](https://fonts.google.com/specimen/Space+Grotesk) and [Inter](https://rsms.me/inter/) (SIL Open Font License), used on the website and in the benchmark PDF
 
 Each of these keeps its own license. This credit list does not change it.
 
