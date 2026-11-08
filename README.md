@@ -17,6 +17,8 @@
 ![Storage](assets/badges/storage.svg)
 ![Tools](assets/badges/tools.svg)
 ![OS](assets/badges/os.svg)
+![AI](assets/badges/ai.svg)
+![Claude Code](assets/badges/claude.svg)
 [![License](assets/badges/license.svg)](LICENSE)
 
 <br>
@@ -113,6 +115,17 @@ COSMOS is not better everywhere: it loses against the full file on Llama 3.2 3B 
 
 ---
 
+## What it's useful for
+
+- **A personal assistant that remembers you:** your preferences, your rules, who is who, what you decided last week.
+- **Project decisions:** why you picked a database, a library or a design, and what it replaced.
+- **A coding assistant with context:** your conventions, your architecture choices, recurring mistakes to avoid.
+- **Research and study notes:** thousands of notes, and the assistant reads only the three that match the question.
+- **Local and small models:** a 2 to 8 billion parameter model has a short context window. COSMOS gives it a long memory without filling that window.
+- **Team knowledge** (several people sharing one `cosmos.db`): not tested, but nothing prevents it.
+
+---
+
 ## Installation
 
 > Requirements: **Python 3.10+** and **git** (no Git? download the ZIP from GitHub).
@@ -201,9 +214,21 @@ Use `.venv/bin/python` on macOS and Linux.
 
 ---
 
-## Polaris, the search model
+## The AI model: Polaris
 
-Every search goes through an embedding model that turns a question and a memory into vectors and compares them. Polaris was fine-tuned on 7,040 memories in 12 languages.
+COSMOS contains **an AI model of its own**, used for search only. It does not write text and it does not talk to you: it turns a sentence into a list of 384 numbers (a vector) so that sentences with the same meaning end up close to each other.
+
+- **What it is:** Polaris is `multilingual-e5-small` (118 million parameters, MIT license) fine-tuned by us on 7,040 memories in 12 languages written for COSMOS. About 10 minutes of training on 2 Tesla T4 GPUs.
+- **What it does:** a question and every memory become vectors. The closest vectors are the best matches. That is why "why did we change databases?" finds "we are moving to PostgreSQL".
+- **Where it runs:** on your CPU, in ONNX format, through [fastembed](https://github.com/qdrant/fastembed). No GPU, no cloud, no API call. Your memories never leave your machine.
+
+**How COSMOS gets the model**
+
+1. If a `models/polaris/` folder exists next to `server.py`, COSMOS uses it.
+2. Otherwise it downloads Polaris once from Hugging Face (`DevLiamDb/polaris`, about 470 MB) and keeps it in your cache. After that it works offline.
+3. Polaris is currently **private**. If you have access, set your token before installing (`HF_TOKEN`, from https://huggingface.co/settings/tokens).
+4. Without access, COSMOS **falls back to MiniLM** (`paraphrase-multilingual-MiniLM-L12-v2`, about 220 MB, public) and prints a message. Everything still works.
+5. `COSMOS_EMBED_MODEL=minilm` forces MiniLM. If you switch model, COSMOS re-indexes your memories by itself.
 
 | Search measure (no AI, ~200 memories) | MiniLM | e5-small | **Polaris** |
 |---|:---:|:---:|:---:|
@@ -212,7 +237,6 @@ Every search goes through an embedding model that turns a question and a memory 
 | Newest version of a fact ranked first | 91.7% | 91.7% | 86.1% |
 
 It is not ahead everywhere: on search alone it ranks the newest version of a fact first less often. COSMOS fixes that order afterwards using the date. Small test set (~125 questions per draw): gaps of 1 to 2 points are within chance.
-
 ---
 
 <details>
@@ -246,13 +270,52 @@ COSMOS/
 
 ---
 
-<details>
-<summary><b>🧰 The 22 tools</b></summary>
+<details open>
+<summary><b>🧰 The 22 tools — what each one is for</b></summary>
 <br>
 
-`cosmos_write`, `cosmos_recall`, `cosmos_query`, `cosmos_neighbors`, `cosmos_categories`, `cosmos_set_category_priority`, `cosmos_priority_context`, `cosmos_set_category_color`, `cosmos_rename_category`, `cosmos_merge_categories`, `cosmos_update_node`, `cosmos_set_pinned`, `cosmos_delete_node`, `cosmos_delete_nodes`, `cosmos_delete_category`, `cosmos_delete_session`, `cosmos_delete_all`, `cosmos_status`, `cosmos_reindex`, `cosmos_visualize`, `cosmos_export_web`, `cosmos_graph_app`.
+You never call these yourself: your assistant does. Here is what each one does in practice.
 
-The deletion tools are irreversible. They are only meant to run when you ask for it explicitly.
+**Remember and find**
+
+| Tool | What it does | Concrete example |
+|---|---|---|
+| `cosmos_write` | Saves a memory: full text, short summary, vector, category, date | "We chose PostgreSQL because of cost" is saved as a decision |
+| `cosmos_query` | Searches by meaning, returns short summaries only | "why did we change databases?" finds it, even with different words |
+| `cosmos_recall` | Loads the full text of one memory | Open the whole meeting note only when the summary is not enough |
+| `cosmos_neighbors` | Shows the linked memories (same topic, before and after) | Follow how a decision evolved over time |
+| `cosmos_update_node` | Edits a memory (title, text, category) | A fact changed: summary and search vector are recomputed |
+| `cosmos_set_pinned` | Pins one memory | Mark "this one matters to me" on a single planet |
+
+**Organize**
+
+| Tool | What it does | Concrete example |
+|---|---|---|
+| `cosmos_categories` | Lists categories and which ones are priority | See what topics your memory contains |
+| `cosmos_set_category_priority` | Marks a whole category as priority | Make your "rules" category always available |
+| `cosmos_priority_context` | The "backpack": all priority memories in one light call | Run at the start of every conversation so the assistant knows your rules |
+| `cosmos_set_category_color` | Sets the color of a category | Make "Work" blue in the web app |
+| `cosmos_rename_category` | Renames a category and its memories | `regle` becomes `rules` |
+| `cosmos_merge_categories` | Merges one category into another | Group two near-duplicate categories |
+
+**Delete (irreversible, only on your explicit request)**
+
+| Tool | What it does |
+|---|---|
+| `cosmos_delete_node` / `cosmos_delete_nodes` | Delete one or several memories and their links |
+| `cosmos_delete_category` | Delete a category and all its memories |
+| `cosmos_delete_session` | Delete everything written during one session |
+| `cosmos_delete_all` | Empty the whole database (there is a safeguard, and no backup) |
+
+**Maintain and visualize**
+
+| Tool | What it does | Concrete example |
+|---|---|---|
+| `cosmos_status` | Counts memories, links, sessions | Check the memory is not empty |
+| `cosmos_reindex` | Recomputes every vector with the current model | After changing the search model |
+| `cosmos_visualize` | Builds a standalone interactive HTML graph | Share a picture of your memory without installing anything |
+| `cosmos_export_web` | Exports the graph for the web app | Refresh the 2D / 3D sky |
+| `cosmos_graph_app` | Shows the graph live in the chat (needs an MCP Apps host and a remote server) | Experimental |
 
 </details>
 
@@ -303,6 +366,19 @@ No. COSMOS re-indexes them automatically the next time the database opens.
 Weak: 21 to 39% correct on our test set. You can always force a category with `node_type`, and merge categories later.
 
 </details>
+
+---
+
+## Credits
+
+COSMOS was **written with AI, and we say it plainly**:
+
+- **The idea** comes mainly from its creator, **Liam**.
+- **The code** was written with **[Claude Code](https://claude.com/claude-code)** (Anthropic).
+- **The web app interface** was generated with **Z.ai (GLM 5.3 Flash)**.
+- **Polaris**, the search model, is a fine-tune of `intfloat/multilingual-e5-small`.
+
+The complete list of people, models and libraries this project stands on is in [CREDITS.md](CREDITS.md).
 
 ---
 

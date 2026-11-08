@@ -17,6 +17,8 @@
 ![Stockage](../assets/badges/storage-fr.svg)
 ![Outils](../assets/badges/tools-fr.svg)
 ![OS](../assets/badges/os.svg)
+![IA](../assets/badges/ai-fr.svg)
+![Claude Code](../assets/badges/claude-fr.svg)
 [![License](../assets/badges/license.svg)](LICENSE.md)
 
 <br>
@@ -113,6 +115,17 @@ COSMOS n'est pas meilleur partout : il perd face au fichier complet sur Llama 3.
 
 ---
 
+## À quoi ça sert
+
+- **Un assistant personnel qui se souvient de toi :** tes préférences, tes règles, qui est qui, ce que tu as décidé la semaine dernière.
+- **Les décisions d'un projet :** pourquoi tu as choisi une base de données, une bibliothèque ou un design, et ce qu'il a remplacé.
+- **Un assistant de code qui a du contexte :** tes conventions, tes choix d'architecture, les erreurs récurrentes à éviter.
+- **Notes de recherche et d'étude :** des milliers de notes, et l'assistant ne lit que les trois qui correspondent à la question.
+- **Modèles locaux et petits :** un modèle de 2 à 8 milliards de paramètres a une fenêtre de contexte courte. COSMOS lui donne une longue mémoire sans remplir cette fenêtre.
+- **Connaissances d'équipe** (plusieurs personnes avec un même `cosmos.db`) : pas testé, mais rien ne l'empêche.
+
+---
+
 ## Installation
 
 > Prérequis : **Python 3.10+** et **git** (pas de Git ? télécharge le ZIP depuis GitHub).
@@ -201,9 +214,21 @@ Sur macOS et Linux, utilise `.venv/bin/python`.
 
 ---
 
-## Polaris, le modèle de recherche
+## Le modèle d'IA : Polaris
 
-Chaque recherche passe par un modèle d'embedding qui transforme la question et le souvenir en vecteurs pour les comparer. Polaris a été affiné sur 7 040 souvenirs en 12 langues.
+COSMOS contient **un modèle d'IA à lui**, utilisé uniquement pour la recherche. Il n'écrit pas de texte et ne te parle pas : il transforme une phrase en une liste de 384 nombres (un vecteur) pour que deux phrases de même sens se retrouvent proches.
+
+- **Ce que c'est :** Polaris est `multilingual-e5-small` (118 millions de paramètres, licence MIT) affiné par nos soins sur 7 040 souvenirs en 12 langues écrits pour COSMOS. Environ 10 minutes d'entraînement sur 2 GPU Tesla T4.
+- **Ce qu'il fait :** une question et chaque souvenir deviennent des vecteurs. Les vecteurs les plus proches sont les meilleures réponses. C'est pour ça que « pourquoi a-t-on changé de base ? » retrouve « on migre vers PostgreSQL ».
+- **Où il tourne :** sur ton processeur, au format ONNX, via [fastembed](https://github.com/qdrant/fastembed). Pas de GPU, pas de cloud, pas d'appel d'API. Tes souvenirs ne quittent jamais ta machine.
+
+**Comment COSMOS récupère le modèle**
+
+1. Si un dossier `models/polaris/` existe à côté de `server.py`, COSMOS l'utilise.
+2. Sinon il télécharge Polaris une seule fois depuis Hugging Face (`DevLiamDb/polaris`, environ 470 Mo) et le garde en cache. Ensuite ça marche hors ligne.
+3. Polaris est pour l'instant **privé**. Si tu y as accès, définis ton token avant l'installation (`HF_TOKEN`, créé sur https://huggingface.co/settings/tokens).
+4. Sans accès, COSMOS **se replie sur MiniLM** (`paraphrase-multilingual-MiniLM-L12-v2`, environ 220 Mo, public) et affiche un message. Tout fonctionne quand même.
+5. `COSMOS_EMBED_MODEL=minilm` force MiniLM. Si tu changes de modèle, COSMOS réindexe tes souvenirs tout seul.
 
 | Mesure de recherche (sans IA, ~200 souvenirs) | MiniLM | e5-small | **Polaris** |
 |---|:---:|:---:|:---:|
@@ -212,7 +237,6 @@ Chaque recherche passe par un modèle d'embedding qui transforme la question et 
 | Version la plus récente d'un fait classée en premier | 91,7 % | 91,7 % | 86,1 % |
 
 Il n'est pas devant partout : sur la recherche seule, il classe moins souvent en premier la version la plus récente d'un fait. COSMOS corrige cet ordre ensuite, grâce à la date. Petit jeu de test (~125 questions par tirage) : des écarts de 1 à 2 points restent dans la marge du hasard.
-
 ---
 
 <details>
@@ -246,13 +270,52 @@ COSMOS/
 
 ---
 
-<details>
-<summary><b>🧰 Les 22 outils</b></summary>
+<details open>
+<summary><b>🧰 Les 22 outils — à quoi sert chacun</b></summary>
 <br>
 
-`cosmos_write`, `cosmos_recall`, `cosmos_query`, `cosmos_neighbors`, `cosmos_categories`, `cosmos_set_category_priority`, `cosmos_priority_context`, `cosmos_set_category_color`, `cosmos_rename_category`, `cosmos_merge_categories`, `cosmos_update_node`, `cosmos_set_pinned`, `cosmos_delete_node`, `cosmos_delete_nodes`, `cosmos_delete_category`, `cosmos_delete_session`, `cosmos_delete_all`, `cosmos_status`, `cosmos_reindex`, `cosmos_visualize`, `cosmos_export_web`, `cosmos_graph_app`.
+Tu ne les appelles jamais toi-même : c'est ton assistant qui le fait. Voici ce que chacun fait concrètement.
 
-Les outils de suppression sont irréversibles. Ils ne doivent tourner que sur ta demande explicite.
+**Se souvenir et retrouver**
+
+| Outil | Ce qu'il fait | Exemple concret |
+|---|---|---|
+| `cosmos_write` | Enregistre un souvenir : texte complet, résumé court, vecteur, catégorie, date | « On a choisi PostgreSQL à cause du coût » est enregistré comme décision |
+| `cosmos_query` | Cherche par le sens, renvoie seulement des résumés courts | « pourquoi a-t-on changé de base ? » le retrouve, même avec d'autres mots |
+| `cosmos_recall` | Charge le texte complet d'un seul souvenir | Ouvrir toute la note de réunion seulement quand le résumé ne suffit pas |
+| `cosmos_neighbors` | Montre les souvenirs liés (même thème, avant et après) | Suivre l'évolution d'une décision dans le temps |
+| `cosmos_update_node` | Modifie un souvenir (titre, texte, catégorie) | Un fait a changé : résumé et vecteur de recherche sont recalculés |
+| `cosmos_set_pinned` | Épingle un souvenir | Marquer « celui-là compte pour moi » sur une seule planète |
+
+**Organiser**
+
+| Outil | Ce qu'il fait | Exemple concret |
+|---|---|---|
+| `cosmos_categories` | Liste les catégories et celles qui sont prioritaires | Voir quels thèmes contient ta mémoire |
+| `cosmos_set_category_priority` | Marque une catégorie entière comme prioritaire | Garder ta catégorie « règles » toujours disponible |
+| `cosmos_priority_context` | Le « sac à dos » : tous les souvenirs prioritaires en un appel léger | À lancer au début de chaque conversation pour que l'assistant connaisse tes règles |
+| `cosmos_set_category_color` | Choisit la couleur d'une catégorie | Mettre « Travail » en bleu dans l'app web |
+| `cosmos_rename_category` | Renomme une catégorie et ses souvenirs | `regle` devient `regles` |
+| `cosmos_merge_categories` | Fusionne une catégorie dans une autre | Regrouper deux catégories quasi identiques |
+
+**Supprimer (irréversible, seulement sur ta demande explicite)**
+
+| Outil | Ce qu'il fait |
+|---|---|
+| `cosmos_delete_node` / `cosmos_delete_nodes` | Supprime un ou plusieurs souvenirs et leurs liens |
+| `cosmos_delete_category` | Supprime une catégorie et tous ses souvenirs |
+| `cosmos_delete_session` | Supprime tout ce qui a été écrit pendant une session |
+| `cosmos_delete_all` | Vide toute la base (il y a un garde-fou, et aucune sauvegarde) |
+
+**Maintenir et visualiser**
+
+| Outil | Ce qu'il fait | Exemple concret |
+|---|---|---|
+| `cosmos_status` | Compte les souvenirs, liens et sessions | Vérifier que la mémoire n'est pas vide |
+| `cosmos_reindex` | Recalcule tous les vecteurs avec le modèle actuel | Après un changement de modèle de recherche |
+| `cosmos_visualize` | Génère un graphe HTML interactif autonome | Partager une image de ta mémoire sans rien installer |
+| `cosmos_export_web` | Exporte le graphe pour l'app web | Rafraîchir le ciel 2D / 3D |
+| `cosmos_graph_app` | Affiche le graphe en direct dans le chat (il faut un hôte MCP Apps et un serveur distant) | Expérimental |
 
 </details>
 
@@ -303,6 +366,19 @@ Non. COSMOS les réindexe automatiquement à la prochaine ouverture de la base.
 Faiblement : 21 à 39 % de bonnes réponses sur notre jeu de test. Tu peux toujours imposer une catégorie avec `node_type` et fusionner les catégories ensuite.
 
 </details>
+
+---
+
+## Crédits
+
+COSMOS a été **écrit avec de l'IA, et on le dit franchement** :
+
+- **L'idée** vient principalement de son créateur, **Liam**.
+- **Le code** a été écrit avec **[Claude Code](https://claude.com/claude-code)** (Anthropic).
+- **L'interface de l'app web** a été générée avec **Z.ai (GLM 5.3 Flash)**.
+- **Polaris**, le modèle de recherche, est un affinage de `intfloat/multilingual-e5-small`.
+
+La liste complète des personnes, modèles et bibliothèques sur lesquels repose ce projet est dans [CREDITS.md](CREDITS.md).
 
 ---
 
