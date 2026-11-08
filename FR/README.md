@@ -12,12 +12,12 @@
 
 **Contextual Object Storage & Memory Over Sessions**
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
-[![MCP](https://img.shields.io/badge/MCP-serveur-7C3AED)](https://modelcontextprotocol.io/)
-![Stockage](https://img.shields.io/badge/Stockage-SQLite_local-003B57?logo=sqlite&logoColor=white)
-![Outils](https://img.shields.io/badge/outils_MCP-22-F5B942)
-![OS](https://img.shields.io/badge/OS-Windows%20%7C%20macOS%20%7C%20Linux-0078D4)
-[![License](https://img.shields.io/badge/License-Personal_Use-red)](../LICENSE)
+[![Python](../assets/badges/python.svg)](https://www.python.org/downloads/)
+[![MCP](../assets/badges/mcp-fr.svg)](https://modelcontextprotocol.io/)
+![Stockage](../assets/badges/storage-fr.svg)
+![Outils](../assets/badges/tools-fr.svg)
+![OS](../assets/badges/os.svg)
+[![License](../assets/badges/license.svg)](../LICENSE)
 
 <br>
 
