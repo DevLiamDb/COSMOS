@@ -19,6 +19,7 @@
 ![OS](../assets/badges/os.svg)
 ![IA](../assets/badges/ai-fr.svg)
 ![Claude Code](../assets/badges/claude-fr.svg)
+![GLM](../assets/badges/glm-fr.svg)
 [![License](../assets/badges/license.svg)](LICENSE.md)
 
 <br>
