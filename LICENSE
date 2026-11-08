@@ -1,0 +1,30 @@
+COSMOS Personal Use License v1.0
+
+Copyright (c) 2026 Liam (DevLiamDb). All rights reserved except as granted below.
+
+You are free to:
+
+  1. Use COSMOS for any personal, educational, research or internal purpose.
+  2. Copy, modify and share COSMOS, as long as you keep this license, the
+     copyright notice above and a clear credit to the original author
+     ("COSMOS by Liam", with a link to https://github.com/DevLiamDb/COSMOS).
+  3. Keep everything you create with COSMOS. Your memories, your database
+     (cosmos.db) and any content produced with it belong entirely to you.
+
+You may NOT:
+
+  1. Sell COSMOS, a modified version of it, or a product or service whose value
+     mainly comes from it, without written permission from the author.
+  2. Claim that you created COSMOS, or remove or hide the author's credit.
+  3. Present your modified version as the original or as officially endorsed
+     by the author.
+
+Models and files published separately (for example the Polaris model on
+Hugging Face) are covered by the license shown on their own page.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. THE AUTHOR IS NOT LIABLE FOR ANY CLAIM, DAMAGE OR LOSS ARISING FROM
+THE USE OF THE SOFTWARE.
+
+To ask for permission (for example for commercial use), contact the author
+through https://github.com/DevLiamDb.
