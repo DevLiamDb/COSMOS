@@ -1,19 +1,120 @@
-# C.O.S.M.O.S. — V1
+<div align="right">
+
+🇬🇧 English | [🇫🇷 Français](FR/README.md)
+
+</div>
+
+<div align="center">
+
+<img src="assets/logo.png" width="96" alt="COSMOS logo">
+
+# COSMOS
 
 **Contextual Object Storage & Memory Over Sessions**
 
-Une vraie implémentation, fonctionnelle et testée, du principe "Cosmos Engine" décrit dans les fiches du lineup Nyros (`Liam/module/cosmos-engine.md`) — mémoire externe persistante en graphe, séparée en deux couches :
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/downloads/)
+[![MCP](https://img.shields.io/badge/MCP-server-7C3AED)](https://modelcontextprotocol.io/)
+![Storage](https://img.shields.io/badge/Storage-local_SQLite-003B57?logo=sqlite&logoColor=white)
+![Tools](https://img.shields.io/badge/MCP_tools-22-F5B942)
+![OS](https://img.shields.io/badge/OS-Windows%20%7C%20macOS%20%7C%20Linux-0078D4)
 
-- **Surface** : un résumé compressé de chaque souvenir, toujours consultable, coût quasi nul.
-- **Abyss** : le contenu brut complet, jamais chargé par défaut, rapatrié uniquement à la demande explicite.
+<br>
 
-C'est **model-agnostic** par construction : COSMOS tourne comme un serveur MCP (Model Context Protocol) séparé de tout modèle. N'importe quelle IA capable de tool-calling (Claude, Gemini via un adaptateur function-calling, un modèle local...) peut s'y brancher et lire/écrire dans le même graphe.
+**Your AI forgets everything between conversations. Pasting all your notes into every prompt works... until it doesn't.**
+
+**COSMOS gives your assistant a memory that lives outside its context window.**
+
+*Built by Liam — with the help of AI.*
+
+</div>
 
 ---
 
-## Installation rapide
+<div align="center">
 
-Il faut seulement Python 3.10 ou plus récent.
+<img src="assets/app.gif" width="760" alt="The COSMOS web app: stars are categories, planets are memories">
+
+*The COSMOS web app on an example project: a star is a category, a planet is a memory.*
+
+</div>
+
+---
+
+> COSMOS is an [MCP](https://modelcontextprotocol.io/) server. Any assistant that can call tools (Claude Desktop, a local model...) writes its memories into a local SQLite file and gets back only the few that matter for the question.
+
+<div align="center">
+<table>
+<tr>
+<td align="center" width="16%">
+
+**🧠 Two layers**<br>
+Short summary always<br>
+available, full text<br>
+on demand
+
+</td>
+<td align="center" width="16%">
+
+**🔎 Search by meaning**<br>
+Finds rephrased<br>
+questions, in<br>
+12 languages
+
+</td>
+<td align="center" width="16%">
+
+**🏠 100% local**<br>
+One SQLite file,<br>
+no cloud, no account
+
+</td>
+<td align="center" width="16%">
+
+**🗂️ Auto categories**<br>
+They grow with use,<br>
+priority ones load<br>
+at conversation start
+
+</td>
+<td align="center" width="16%">
+
+**🕸️ Memory graph**<br>
+Links by topic<br>
+and by time
+
+</td>
+<td align="center" width="16%">
+
+**🌌 2D / 3D app**<br>
+See your memory<br>
+as a sky of stars<br>
+and planets
+
+</td>
+</tr>
+</table>
+</div>
+
+---
+
+## Why COSMOS
+
+We compared COSMOS with the usual approach (pasting the whole notes file into the prompt) on **8 open models** (1.7B to 8B parameters), 298 questions per model and per setup, with about 200 memories stored.
+
+| | Whole `.md` file in the prompt | COSMOS |
+|---|:---:|:---:|
+| Tokens sent per question | ≈ 4,750 | **≈ 210** (×23 fewer) |
+| Time per answer | ≈ 7.9 s | **≈ 0.75 s** (×11 faster) |
+| Right memory in the top 3 of the search | — | **97%** (95% with 1,700 memories) |
+| Models where it wins · ties · loses | | **4 · 2 · 2** |
+
+COSMOS is not better everywhere: it loses against the full file on Llama 3.2 3B and Qwen3.5 4B. The honest details, the method and the limits are in [`benchmark-cosmos/`](benchmark-cosmos/SUMMARY.md) and on the [website](https://cosmos.devliam.com).
+
+---
+
+## Installation
+
+> Requirements: **Python 3.10+** and **git** (no Git? download the ZIP from GitHub).
 
 ```bash
 git clone https://github.com/DevLiamDb/COSMOS.git
@@ -21,78 +122,56 @@ cd COSMOS
 python install.py --configure
 ```
 
-Le script crée un environnement `.venv`, installe les dépendances, télécharge le modèle de recherche (une seule fois) et ajoute COSMOS à Claude Desktop, après avoir sauvegardé ton ancienne config (`.json.bak`). Sans `--configure`, il affiche le bloc à copier à la main. Redémarre ensuite Claude Desktop.
+Then **restart Claude Desktop**. That's it.
 
-Polaris, notre modèle de recherche, est privé pour l'instant : sans token Hugging Face, COSMOS utilise automatiquement MiniLM (même fonctionnement, un peu moins précis sur la détection de « rien en mémoire »). Avec un token, définis `HF_TOKEN` avant `python install.py` pour utiliser Polaris.
+<!-- 📸 ADD YOUR GIF HERE — record the install in a terminal with ScreenToGif (Windows) or asciinema, save it as assets/install.gif, then uncomment: -->
+<!-- ![Installing COSMOS](assets/install.gif) -->
+
+`install.py` does everything for you:
+
+1. creates a `.venv` environment,
+2. installs the dependencies,
+3. downloads the search model once (it then stays cached on your machine),
+4. with `--configure`, adds COSMOS to Claude Desktop (your old config is saved as `claude_desktop_config.json.bak`).
+
+**Prefer to edit the config yourself?** Run `python install.py` without `--configure`: it prints the block to paste in `claude_desktop_config.json`.
+
+**About the search model.** COSMOS searches with **Polaris**, our own model (multilingual-e5-small fine-tuned on memories written for COSMOS). Polaris is currently private on Hugging Face: without a token, COSMOS **automatically falls back to MiniLM**, which works the same way. With access, set `HF_TOKEN` before running `install.py`.
 
 ---
 
-## Où vont les données ?
+## Usage
 
-Dans un fichier **SQLite local** (`cosmos.db`, créé à côté de `server.py` la première fois que le serveur tourne). Pas de service cloud, pas d'envoi à un tiers, pas de compte à créer — le fichier vit sur la machine qui fait tourner le serveur, sous ton contrôle total. Tu peux l'ouvrir avec n'importe quel client SQLite standard, le sauvegarder, le supprimer.
+### 1. Talk to your assistant
 
-Si le volume grossit au point qu'un seul fichier SQLite devient limitant (beaucoup d'écritures concurrentes, plusieurs process), le chemin d'évolution naturel est Postgres (+ l'extension `pgvector` à la place du BLOB numpy actuel pour les embeddings) — mais ça reste un choix à faire plus tard, pas un prérequis pour que ça marche aujourd'hui.
-
----
-
-## Structure
+Once connected, Claude sees 22 `cosmos_*` tools. You don't call them yourself: the assistant does.
 
 ```
-COSMOS/
-├── cosmos/
-│   ├── db.py          # schéma SQLite (nodes, edges), sérialisation des embeddings
-│   ├── embeddings.py  # vectorisation sémantique réelle (fastembed, voir section dédiée)
-│   ├── summarizer.py  # résumé Surface (extractif naïf par défaut, branchable sur un LLM)
-│   ├── categorize.py  # catégorisation automatique (zero-shot par embedding, voir section dédiée)
-│   ├── graph.py        # CosmosEngine : write_node, recall, query, link, neighbors, status, reindex_embeddings, export_graph
-│   └── visualize.py    # graphe HTML interactif (PCA sur les embeddings + D3.js), façon Obsidian
-├── server.py           # serveur MCP : cosmos_write / recall / query / status / reindex / visualize / graph_app
-├── scripts/
-│   └── chat_with_memory.py  # chat direct via l'API Claude, sans serveur MCP (voir section dédiée)
-├── tests/test_cosmos.py
-└── requirements.txt
+cosmos_write("We are moving the database to PostgreSQL: lower cost.")
+→ stored · category: Example Project · type: decision
+
+cosmos_query("why did we change databases?")
+→ Database: switch to PostgreSQL (cost).        ← short summaries only
+
+cosmos_recall(id)
+→ Team meeting: we are moving from Firebase to PostgreSQL because of cost...   ← full text, on demand
 ```
 
-## Catégorisation automatique
+To make the assistant use COSMOS on its own, give it the instructions in [`cosmos-memory.md`](cosmos-memory.md).
 
-Quand `cosmos_write` est appelé sans préciser `node_type`, COSMOS classe automatiquement le souvenir dans une catégorie (`fait`, `decision`, `tache`, `preference`, `contexte_projet`, `question_ouverte`) — zero-shot, par comparaison d'embedding avec des exemples-prototypes par catégorie (voir `cosmos/categorize.py`). Test réel sur 6 exemples français : 5/6 corrects. La seule confusion observée porte sur un cas ambigu par nature (un fait qui décrit aussi le contexte d'un projet). `node_type` explicite reste toujours possible pour forcer une catégorie précise ou en sortir de la taxonomie par défaut.
+### 2. Priority categories — the "backpack"
 
-## Le sac à dos : catégories dynamiques et prioritaires
+Mark a category as priority (rules, preferences). `cosmos_priority_context()` returns all of it in one light call, to be run at the start of every conversation.
 
-Idée de départ : plutôt que le modèle hôte garde tout dans son contexte d'entrée, il pose dans COSMOS ce qui compte, rangé par catégorie — et certaines catégories (des règles, des préférences permanentes) doivent être **toujours** disponibles sans avoir à les rechercher, comme un sac à dos qu'on ouvre en démarrant une conversation plutôt que de tout porter sur soi en permanence.
+<div align="center">
 
-Deux mécanismes réels pour ça :
+<img src="assets/decision.gif" width="680" alt="A priority category opened in the COSMOS app">
 
-- **Taxonomie dynamique.** La liste de catégories dans `categorize.py` (`fait`, `decision`, `tache`, `preference`, `contexte_projet`, `question_ouverte`) n'est plus figée. Écrire avec un `node_type` qui n'existe pas encore (ex: `cosmos_write(..., node_type="regle_securite")`) le crée à la volée — son embedding devient la moyenne de tous les souvenirs qui lui sont assignés (`CosmosEngine._touch_category`). Résultat mesuré (`test_dynamic_category_gets_reused_by_auto_categorization`) : après deux écritures explicites dans `regle_securite`, une troisième phrase similaire écrite *sans* préciser `node_type` est reconnue automatiquement dans cette même catégorie plutôt que rangée dans la taxonomie par défaut — la classification zero-shot compare maintenant contre la taxonomie de base **union** tout ce qui a déjà été appris.
-- **Catégories prioritaires.** `cosmos_write(..., priority=True)` (ou `cosmos_set_category_priority`) marque une catégorie entière comme prioritaire. `cosmos_priority_context()` retourne alors, en un seul appel léger (juste le Surface, jamais l'Abyss complet), tous les souvenirs de ces catégories — pensé pour être appelé une fois en début de conversation plutôt que de porter tout l'historique dans le contexte du modèle hôte. `cosmos_categories()` liste la taxonomie actuelle (nom, nombre d'exemples, prioritaire ou non) pour voir ce qui a émergé.
+*A "Decisions" star opened in the app: seven memories in orbit.*
 
-Limite honnête : l'auto-création de catégorie ne juge jamais si le nom choisi est pertinent ou redondant avec une catégorie existante proche (ex: `regle` et `regles_projet` cohabiteraient sans fusion automatique) — c'est au modèle hôte de rester cohérent dans les noms qu'il choisit, COSMOS ne fait qu'apprendre ce qu'on lui donne.
+</div>
 
-## Chat direct via l'API (sans serveur MCP)
-
-Pour tester COSMOS comme vraie mémoire d'IA tout de suite, sans passer par un connecteur Cowork ni un hébergement distant :
-
-```bash
-pip install -r requirements.txt
-set ANTHROPIC_API_KEY=sk-ant-...      # PowerShell : $env:ANTHROPIC_API_KEY="sk-ant-..."
-python scripts/chat_with_memory.py
-```
-
-Ce script parle directement à l'API Claude (Messages API, tool use) et branche les mêmes méthodes de `CosmosEngine` comme implémentation des outils — aucun serveur MCP, aucune config Desktop, aucun hébergement. C'est le chemin le plus rapide pour vérifier que la mémoire fonctionne vraiment en conversation. Nécessite une clé API Claude (console.anthropic.com, différente de l'abonnement Claude.ai — facturé à l'usage sur ce compte API séparément).
-
-## Webapp Next.js/Three.js (visualisation officielle)
-
-`webapp/` (fusionnee ici depuis l'ancien dossier `COSMOS-` separe) est une webapp Next.js/Three.js (univers 2D Canvas + 3D WebGL, recherche `Ctrl K`, filtres, panneaux de detail) qui lit et ecrit DIRECTEMENT `cosmos.db` (voir `webapp/src/lib/cosmos/cosmos-db.ts`) -- pas besoin de rappeler `cosmos_export_web()` pour qu'elle reflete tes vrais souvenirs, meme les editions manuelles faites depuis l'interface. Le mapping (voir `cosmos/web_export.py` pour le detail honnete des approximations, utilise seulement par l'export JSON de secours) : chaque categorie COSMOS devient une etoile ✦ (systeme solaire), chaque souvenir une planete en orbite, les vraies aretes du graphe deviennent les "connexions" affichees dans le panneau de detail.
-
-**La route `GET /api/cosmos/sync` essaie trois sources, dans cet ordre** (voir `webapp/src/app/api/cosmos/sync/route.ts`) :
-
-1. **Lecture directe de `cosmos.db`** (`cosmos-db.ts::readCosmosDataset`) -- la vraie source, toujours a jour.
-2. **Repli** : l'ancien instantane `live-data.json` (ecrit par `cosmos_export_web`), utilise seulement si `cosmos.db` est illisible depuis ce process.
-3. **Dernier repli** : une base Prisma/SQLite propre a la webapp (`prisma/schema.prisma`), amorcee au premier appel avec un jeu de donnees ecrit a la main dans `webapp/src/lib/cosmos/current-data.ts` (8 categories, 41 souvenirs) -- un exemple honnete, **pas** du vrai `cosmos.db`, utilise seulement si aucune des deux sources reelles n'est disponible sur la machine qui fait tourner la webapp.
-
-**L'edition depuis l'interface est un vrai second client d'ecriture**, pas juste de la lecture : `POST /api/cosmos/planets` (creer), `PATCH /api/cosmos/planets/[id]` (editer titre/contenu/categorie), `POST /api/cosmos/planets/[id]/pin` (epingler), `POST /api/cosmos/categories/rename`, `/color`, `/merge` -- tous appellent directement les fonctions d'ecriture de `cosmos-db.ts` sur `cosmos.db`. Il y a aussi `POST /api/cosmos/import` pour importer des notes personnelles (fichiers `.md`/`.txt`, un fichier = un souvenir, titre pris sur le premier `# titre` sinon le nom de fichier) sans passer par une conversation avec l'IA.
-
-Pour la voir tourner (webapp Next.js classique, pas geree par le serveur MCP -- le projet est configure pour **bun**, `npm`/`npx` fonctionnent aussi mais `bun.lock` fait foi) :
+### 3. See your memory (web app)
 
 ```bash
 cd webapp
@@ -100,88 +179,134 @@ bun install
 bun dev
 ```
 
-Puis ouvrir `http://localhost:3000`. Rappeler `cosmos_export_web()` apres de nouvelles ecritures faites depuis une conversation Claude (pas depuis la webapp elle-meme, qui ecrit deja directement dans `cosmos.db`) pour rafraichir `live-data.json`, le repli n°2 ci-dessus.
+Open http://localhost:3000. Search with `Ctrl K`, filter, edit, switch between 2D and 3D. The app reads and writes the same `cosmos.db` as the server.
 
-## Visualiser le graphe (fichier HTML autonome, sans rien installer)
-
-```
-cosmos_visualize()  # depuis Claude, ou directement :
-python -c "from cosmos import CosmosEngine, visualize; visualize.save_html(CosmosEngine('cosmos.db').export_graph(), 'cosmos_graph.html')"
-```
-
-Génère un fichier HTML autonome (D3.js chargé depuis un CDN, tout le reste inline) à ouvrir dans un navigateur — un graphe interactif façon Obsidian, avec une différence : les nœuds démarrent positionnés par vraie proximité sémantique (PCA sur les embeddings, pas juste une simulation de force basée sur les liens), donc des souvenirs qui parlent du même sujet se regroupent visuellement même sans arête explicite entre eux. Survoler un nœud affiche le contenu complet (Abyss) ; les arêtes sont colorées par type (proximité thématique en pointillés, continuité temporelle, citation).
-
-## Widget live dans le chat (MCP Apps) — et sa vraie limite
-
-`cosmos_graph_app` tente d'aller plus loin que "génère un fichier à ouvrir" : afficher le graphe **en direct, dans la fenêtre de chat de Claude**, comme un vrai widget interactif. C'est possible grâce à **MCP Apps**, une extension officielle du protocole MCP lancée le 26 janvier 2026 (Claude, VS Code, Microsoft 365 Copilot la supportent). Le mécanisme : un outil (`cosmos_graph_app`) déclare `_meta.ui.resourceUri` pointant vers une ressource `ui://cosmos/graph`, qui sert le HTML du graphe ; l'hôte (Claude) le rend dans un iframe sécurisé.
-
-Ce qui est réellement fait et testé :
-
-- Le câblage protocole est correct et vérifié (`tests/test_cosmos.py::TestMcpAppsWiring`) — l'outil expose bien `_meta.ui.resourceUri`, la ressource sert bien le HTML du graphe.
-- Le SDK Python officiel côté serveur pour MCP Apps (`mcp-ui-server` sur PyPI) a un vrai bug de compatibilité avec la version de `mcp` installée ici (`ValidationError` sur le type d'URI) — contourné en construisant la ressource directement avec les types natifs du SDK `mcp`, sans dépendance supplémentaire.
-
-Ce qui n'est *pas* garanti fonctionner tel quel :
-
-> ⚠️ **D'après la documentation officielle Anthropic elle-même**, tester un widget MCP Apps avec Claude nécessite un serveur MCP **distant** (exposé publiquement, ajouté comme "connecteur personnalisé") — pas un serveur stdio local via `claude_desktop_config.json` comme celui-ci. C'est exactement la même limite que celle déjà rencontrée pour les outils simples de COSMOS en mode Cowork. Le code est prêt et correct côté protocole ; le rendu visuel réel dans Claude reste à vérifier une fois COSMOS hébergé à distance (voir la section suivante).
-
-## Lancer
+### 4. Test it without an MCP client *(optional)*
 
 ```bash
-pip install -r requirements.txt
-python -m unittest discover -s tests -v   # 50 tests, tous passent sur une vraie base SQLite temporaire
-python server.py                          # lance le serveur MCP en stdio
+set ANTHROPIC_API_KEY=sk-ant-...      # PowerShell: $env:ANTHROPIC_API_KEY="sk-ant-..."
+python scripts/chat_with_memory.py
 ```
 
-> Premier lancement plus lent que les suivants : le modèle d'embedding (~220 Mo) se télécharge une seule fois depuis Hugging Face et se met en cache localement (`~/.cache/fastembed` — `%USERPROFILE%\.cache\fastembed` sur Windows).
+A terminal chat that uses COSMOS as its memory (needs your own Claude API key, billed on that account).
 
-## Brancher sur Claude Desktop
+### 5. Run the tests *(optional)*
 
-Ajouter dans la config MCP de Claude Desktop (`claude_desktop_config.json`) :
-
-```json
-{
-  "mcpServers": {
-    "cosmos-engine": {
-      "command": "python",
-      "args": ["/chemin/absolu/vers/COSMOS/server.py"]
-    }
-  }
-}
+```bash
+.venv/Scripts/python -m unittest discover -s tests -v
 ```
 
-Claude verra alors les **22 outils** exposés par `server.py` comme n'importe quel autre outil MCP : `cosmos_write`, `cosmos_recall`, `cosmos_query`, `cosmos_neighbors`, `cosmos_categories`, `cosmos_set_category_priority`, `cosmos_priority_context`, `cosmos_set_category_color`, `cosmos_rename_category`, `cosmos_merge_categories`, `cosmos_update_node`, `cosmos_set_pinned`, `cosmos_delete_node`, `cosmos_delete_nodes`, `cosmos_delete_category`, `cosmos_delete_session`, `cosmos_delete_all`, `cosmos_status`, `cosmos_reindex`, `cosmos_visualize`, `cosmos_export_web`, `cosmos_graph_app` — voir la section précédente pour la limite connue sur `cosmos_graph_app` en local.
-
-> Note : `scripts/chat_with_memory.py` (chat direct via l'API, voir plus haut) ne branche lui qu'un sous-ensemble minimal — `cosmos_write`, `cosmos_query`, `cosmos_recall`, `cosmos_status` — pas les 17 outils complets, volontairement, pour rester simple comme point d'entrée rapide.
-
-### Suppression (irréversible)
-
-Cinq outils permettent d'effacer, sans corbeille ni sauvegarde automatique : `cosmos_delete_node` / `cosmos_delete_nodes` (un ou plusieurs souvenirs précis, avec leurs liens), `cosmos_delete_category` (une catégorie entière avec tous ses souvenirs), `cosmos_delete_session` (tous les souvenirs d'une session) et `cosmos_delete_all` (toute la base). Une catégorie qui n'a plus aucun souvenir disparaît avec le dernier. `cosmos_delete_all` ne fait rien sans `confirmation="SUPPRIMER TOUT"` (sans elle, il indique seulement ce qui serait supprimé) ; `keep_categories=True` conserve les catégories vides avec leurs priorités et couleurs. Il purge aussi le fichier sur disque (checkpoint WAL + VACUUM) ; si la webapp lit la base à cet instant, la purge peut être reportée (`disque_purge: false`) sans que les données restent visibles. `live-data.json` (instantané de repli de la webapp) n'est pas touché : rappeler `cosmos_export_web()` pour l'écraser.
-
-### Philosophie de navigation : pas de "liste par catégorie" imposée
-
-Volontairement, il n'y a pas d'outil du genre "liste-moi toutes les tâches" ou "montre-moi telle session en entier". COSMOS donne les outils bruts (écrire, rappeler exactement, chercher par sens, parcourir le graphe via `cosmos_neighbors`) et laisse le modèle hôte décider comment naviguer sa propre mémoire — la catégorisation automatique (`cosmos/categorize.py`) sert de signal pour la recherche et l'organisation interne, pas de menu figé imposé à l'utilisateur.
-
-## Brancher sur Gemini
-
-L'API Gemini a son propre format de function calling (pas MCP nativement) — il faut soit exposer les mêmes fonctions via ses "function declarations" (un petit adaptateur qui appelle les mêmes méthodes de `CosmosEngine`), soit passer par un pont MCP-vers-Gemini. Le stockage (`cosmos.db`) reste unique et partagé entre les deux — c'est ce qui permet à Claude et Gemini de lire/écrire dans la même mémoire.
+Use `.venv/bin/python` on macOS and Linux.
 
 ---
 
-## Embeddings — ce qui a changé en V1
+## Polaris, the search model
 
-La beta utilisait un sac-de-mots haché (`HashingVectorizer`, scikit-learn) : réel et fonctionnel, mais pas sémantique — deux phrases qui disent la même chose avec des mots différents n'étaient jamais rapprochées.
+Every search goes through an embedding model that turns a question and a memory into vectors and compares them. Polaris was fine-tuned on 7,040 memories in 12 languages.
 
-La V1 utilise un vrai modèle d'embedding dense via **fastembed** (`sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`, 384 dimensions, multilingue — choisi parce que le contenu de ce projet est en français). Test réel fait pendant le développement : deux phrases françaises reformulant le même fait → similarité cosinus **0,97** ; contre une phrase sans rapport → **0,10**. fastembed plutôt que sentence-transformers/torch directement : mêmes modèles (exportés en ONNX), sans la dépendance lourde et cassante à PyTorch.
+| Search measure (no AI, ~200 memories) | MiniLM | e5-small | **Polaris** |
+|---|:---:|:---:|:---:|
+| Right memory in the top 3 | 97.6% | 96.3% | **98.3%** |
+| "Not in memory" recognized | 84.6% | 84.8% | **92.0%** |
+| Newest version of a fact ranked first | 91.7% | 91.7% | 86.1% |
 
-> ⚠️ **Migration depuis une base beta existante.** Les vecteurs stockés par la beta (512 dims, sac-de-mots) et la V1 (384 dims, sémantique) ne sont pas compatibles. Si tu as déjà un `cosmos.db` créé avec la beta, appelle l'outil `cosmos_reindex` (ou `CosmosEngine.reindex_embeddings()`) une fois après la mise à jour — ça recalcule l'embedding de tous les nœuds existants avec le nouveau modèle. Sans ça, les recherches sémantiques sur d'anciens nœuds échoueront ou donneront des résultats faux.
+It is not ahead everywhere: on search alone it ranks the newest version of a fact first less often. COSMOS fixes that order afterwards using the date. Small test set (~125 questions per draw): gaps of 1 to 2 points are within chance.
 
 ---
 
-## Limites honnêtes restantes (V1, pas encore un système multi-utilisateurs à grande échelle)
+<details>
+<summary><b>🗂️ File structure</b></summary>
+<br>
 
-- **Résumé Surface** : extractif naïf (premières phrases, troncature) par défaut — fonctionnel mais moins bon qu'un vrai résumé généré par un LLM. `cosmos/summarizer.py::set_summarizer()` est déjà câblé pour brancher un vrai appel LLM sans toucher au reste.
-- **Échelle** : testé et adapté pour des dizaines/centaines de milliers de nœuds sur une seule machine. Pas dimensionné pour du multi-utilisateurs à très grande échelle ou des requêtes de graphe multi-sauts complexes — voir la note sur Postgres/Neo4j plus haut.
-- **Sécurité/concurrence** : la connexion SQLite est maintenant protégée par un verrou (`threading.RLock`) contre les accès concurrents multi-thread du serveur MCP — testé (`test_concurrent_access_from_multiple_threads`). Il n'y a en revanche toujours pas d'authentification sur le serveur MCP lui-même, ni de gestion multi-process (plusieurs instances de `server.py` sur le même fichier) — à ajouter avant un déploiement partagé entre plusieurs utilisateurs non session-isolés.
-- **Premier lancement** : télécharge ~220 Mo (le modèle d'embedding) depuis Hugging Face — nécessite une connexion internet la première fois seulement, tout tourne hors-ligne ensuite.
+```
+COSMOS/
+├── install.py            ← one-command installer ← START HERE
+├── server.py             ← MCP server (22 tools)
+├── cosmos/               ← the engine
+│   ├── db.py             ← SQLite schema (nodes, edges), embeddings storage
+│   ├── embeddings.py     ← semantic vectors (Polaris, MiniLM fallback)
+│   ├── summarizer.py     ← "Surface" summary of each memory
+│   ├── categorize.py     ← automatic categories (zero-shot)
+│   ├── graph.py          ← CosmosEngine: write, recall, query, link, neighbors...
+│   ├── visualize.py      ← standalone interactive HTML graph
+│   └── web_export.py     ← JSON export for the web app
+├── webapp/               ← Next.js / Three.js app (2D and 3D)
+├── scripts/              ← terminal chat with memory
+├── tests/                ← test suite
+├── benchmark/            ← benchmark code (run, report, synthetic data)
+├── benchmark-cosmos/     ← real results: charts, tables, raw answers
+├── training/             ← Polaris training and export scripts
+├── cosmos-memory.md      ← instructions to give your assistant
+├── docs/                 ← detailed documentation (French)
+└── assets/               ← logo and GIFs
+```
 
-Ce ne sont pas des détails cachés : le but de ce README est de dire clairement ce qui est un vrai mécanisme fonctionnel et testé (le graphe, Surface/Abyss, les embeddings sémantiques, le verrouillage thread-safe) vs ce qui reste à durcir avant un usage multi-utilisateurs en production (résumé, auth, multi-process).
+</details>
+
+---
+
+<details>
+<summary><b>🧰 The 22 tools</b></summary>
+<br>
+
+`cosmos_write`, `cosmos_recall`, `cosmos_query`, `cosmos_neighbors`, `cosmos_categories`, `cosmos_set_category_priority`, `cosmos_priority_context`, `cosmos_set_category_color`, `cosmos_rename_category`, `cosmos_merge_categories`, `cosmos_update_node`, `cosmos_set_pinned`, `cosmos_delete_node`, `cosmos_delete_nodes`, `cosmos_delete_category`, `cosmos_delete_session`, `cosmos_delete_all`, `cosmos_status`, `cosmos_reindex`, `cosmos_visualize`, `cosmos_export_web`, `cosmos_graph_app`.
+
+The deletion tools are irreversible. They are only meant to run when you ask for it explicitly.
+
+</details>
+
+---
+
+<details>
+<summary><b>⚙️ How it works inside</b></summary>
+<br>
+
+```
+assistant ──MCP──► server.py ──► CosmosEngine ──► cosmos.db (SQLite)
+                                      │
+                                      └── Polaris / MiniLM (ONNX, CPU, via fastembed)
+```
+
+- **Write:** the full text is stored (Abyss), summarized (Surface), turned into a vector, categorized and dated.
+- **Query:** the question becomes a vector, the closest memories come back as short summaries. Newer versions of a fact rank first, outdated ones are flagged as replaced.
+- **Recall:** the assistant asks for the full text of one memory. Nothing else enters its context window.
+
+If you change the embedding model, COSMOS detects it when the database opens and re-indexes your memories.
+
+The full French documentation (categories, web app routes, graph, limits) is in [`docs/DETAILS-fr.md`](docs/DETAILS-fr.md).
+
+</details>
+
+---
+
+<details>
+<summary><b>❓ FAQ</b></summary>
+<br>
+
+**Where is my data?**
+In `cosmos.db`, created next to `server.py` the first time it runs. It never leaves your machine. You can open it with any SQLite client, back it up or delete it.
+
+**Do I need a GPU or an account?**
+No. Polaris runs on the CPU. No account, no API key (except for the optional terminal chat).
+
+**The first launch is slow.**
+The search model downloads once (about 220 MB for MiniLM, 470 MB for Polaris), then stays in your cache.
+
+**Claude doesn't see the tools.**
+Restart Claude Desktop completely after `install.py --configure`. Check that `claude_desktop_config.json` contains a `cosmos-engine` entry.
+
+**I changed the search model, did I lose my memories?**
+No. COSMOS re-indexes them automatically the next time the database opens.
+
+**How reliable is the automatic categorization?**
+Weak: 21 to 39% correct on our test set. You can always force a category with `node_type`, and merge categories later.
+
+</details>
+
+---
+
+<div align="center">
+
+Built by Liam — with the help of AI.
+
+</div>
