@@ -112,7 +112,7 @@ We compared COSMOS with the usual approach (pasting the whole notes file into th
 | Right memory in the top 3 of the search | — | **97%** (95% with 1,700 memories) |
 | Models where it wins · ties · loses | | **4 · 2 · 2** |
 
-COSMOS is not better everywhere: it loses against the full file on Llama 3.2 3B and Qwen3.5 4B. The honest details, the method and the limits are in [`benchmark-cosmos/`](benchmark-cosmos/SUMMARY.md) and on the [website](https://cosmos.devliam.com).
+COSMOS is not better everywhere: it loses against the full file on Llama 3.2 3B and Qwen3.5 4B. The honest details, the method and the limits are in [`benchmark-cosmos/`](benchmark-cosmos/SUMMARY.md) and on the [website](https://cosmos.devliam.com). **[Full methodology (PDF)](docs/benchmark-methodology.pdf)**: data, setups, scoring, statistics and limits.
 
 ---
 

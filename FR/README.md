@@ -112,7 +112,7 @@ On a comparé COSMOS à l'approche habituelle (coller tout le fichier de notes d
 | Bon souvenir dans le top 3 de la recherche | — | **97 %** (95 % avec 1 700 souvenirs) |
 | Modèles où il gagne · égalise · perd | | **4 · 2 · 2** |
 
-COSMOS n'est pas meilleur partout : il perd face au fichier complet sur Llama 3.2 3B et Qwen3.5 4B. Les détails honnêtes, la méthode et les limites sont dans [`benchmark-cosmos/`](../benchmark-cosmos/SUMMARY.md) et sur le [site](https://cosmos.devliam.com).
+COSMOS n'est pas meilleur partout : il perd face au fichier complet sur Llama 3.2 3B et Qwen3.5 4B. Les détails honnêtes, la méthode et les limites sont dans [`benchmark-cosmos/`](../benchmark-cosmos/SUMMARY.md) et sur le [site](https://cosmos.devliam.com). **[Méthodologie complète (PDF, en anglais)](../docs/benchmark-methodology.pdf)** : données, configurations, notation, statistiques et limites.
 
 ---
 
