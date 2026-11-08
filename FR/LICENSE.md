@@ -1,13 +1,13 @@
 COSMOS Personal Use License v1.0 (version française)
 
-Copyright (c) 2026 Liam (DevLiamDb). Tous droits réservés, sauf ceux accordés ci-dessous.
+Copyright (c) 2026 Liam DB (DevLiamDb). Tous droits réservés, sauf ceux accordés ci-dessous.
 
 Tu es libre de :
 
   1. Utiliser COSMOS à titre personnel, éducatif, de recherche ou en interne.
   2. Copier, modifier et partager COSMOS, à condition de garder cette licence,
      la mention de copyright ci-dessus et un crédit clair à l'auteur d'origine
-     (« COSMOS par Liam », avec un lien vers https://github.com/DevLiamDb/COSMOS).
+     (« COSMOS par Liam DB », avec un lien vers https://github.com/DevLiamDb/COSMOS).
   3. Garder tout ce que tu crées avec COSMOS. Tes souvenirs, ta base de données
      (cosmos.db) et tout contenu produit avec COSMOS t'appartiennent entièrement.
 

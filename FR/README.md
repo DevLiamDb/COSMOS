@@ -27,7 +27,7 @@
 
 **COSMOS donne à ton assistant une mémoire qui vit en dehors de sa fenêtre de contexte.**
 
-*Créé par Liam — avec l'aide de l'IA.*
+*Créé par Liam DB — avec l'aide de l'IA.*
 
 </div>
 
@@ -370,16 +370,49 @@ Faiblement : 21 à 39 % de bonnes réponses sur notre jeu de test. Tu peux toujo
 
 ---
 
-## Crédits
+## Histoire & crédits
 
-COSMOS a été **écrit avec de l'IA, et on le dit franchement** :
+<details>
+<summary><b>📖 Comment COSMOS est né</b></summary>
+<br>
 
-- **L'idée** vient principalement de son créateur, **Liam**.
-- **Le code** a été écrit avec **[Claude Code](https://claude.com/claude-code)** (Anthropic).
-- **L'interface de l'app web** a été générée avec **Z.ai (GLM 5.3 Flash)**.
-- **Polaris**, le modèle de recherche, est un affinage de `intfloat/multilingual-e5-small`.
+COSMOS a commencé comme une **histoire**, pas comme un logiciel.
 
-La liste complète des personnes, modèles et bibliothèques sur lesquels repose ce projet est dans [CREDITS.md](CREDITS.md).
+Liam DB écrivait une histoire et faisait du roleplay avec des IA pour s'imaginer vivre au milieu de modèles d'IA inventés. L'un d'eux avait une **mémoire infinie** : une mémoire qui vivait en dehors du modèle, gardait tout, et ne rendait que ce qui comptait. Dans l'histoire, cette mémoire s'appelait **COSMOS**.
+
+Puis à un moment, l'histoire a cessé d'être seulement une histoire. La question est devenue « est-ce que ça pourrait vraiment exister ? », et c'est devenu un vrai projet, d'abord nommé **Cosmos Engine**, aujourd'hui simplement **COSMOS**.
+
+| | |
+|---|---|
+| **Naissance** | Vendredi 11 septembre 2026, 12:28:28 |
+| **Ancien nom** | Cosmos Engine |
+| **Origine** | Un modèle d'IA fictif à mémoire infinie, tiré d'une histoire de roleplay |
+| **Aujourd'hui** | Un vrai serveur MCP avec son propre modèle de recherche, Polaris |
+
+</details>
+
+<details>
+<summary><b>🙏 Crédits — qui et quoi a fait COSMOS</b></summary>
+<br>
+
+COSMOS a été **écrit avec de l'IA, et on le dit franchement.**
+
+| Qui | Rôle |
+|---|---|
+| **Liam DB** ([DevLiamDb](https://github.com/DevLiamDb)) | Créateur. L'idée, l'histoire derrière, la direction, les décisions, les tests. |
+| **[Claude Code](https://claude.com/claude-code)** (Anthropic) | A écrit le code du projet (moteur, serveur MCP, installateur, benchmark, scripts d'entraînement), sous la direction de Liam DB. |
+| **Z.ai, modèle GLM 5.3 Flash** | A généré l'interface de l'app web (`webapp/`). |
+| **Polaris** | Le modèle de recherche : un affinage de [`intfloat/multilingual-e5-small`](https://huggingface.co/intfloat/multilingual-e5-small). |
+
+Les souvenirs d'entraînement, les questions du benchmark et les textes de test ont aussi été écrits avec de l'IA, pas collectés auprès de vrais utilisateurs.
+
+**Construit sur :** [MCP](https://modelcontextprotocol.io/), [fastembed](https://github.com/qdrant/fastembed), [ONNX Runtime](https://onnxruntime.ai/), [SQLite](https://www.sqlite.org/), [Hugging Face](https://huggingface.co/), [Kaggle](https://www.kaggle.com/) (entraînement et benchmark), [Next.js](https://nextjs.org/) et [Three.js](https://threejs.org/) pour l'app web.
+
+**Retrouver le créateur :** 🌐 [devliam.com](https://devliam.com) · 🐙 [GitHub](https://github.com/DevLiamDb)
+
+La liste complète des modèles, bibliothèques et licences est dans [CREDITS.md](CREDITS.md).
+
+</details>
 
 ---
 
@@ -399,6 +432,6 @@ Voir [LICENSE.md](LICENSE.md) pour les conditions complètes.
 
 <div align="center">
 
-Créé par Liam — avec l'aide de l'IA.
+Créé par Liam DB — avec l'aide de l'IA.
 
 </div>

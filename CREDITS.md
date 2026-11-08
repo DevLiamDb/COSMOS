@@ -4,12 +4,36 @@
 
 COSMOS was written with AI, and this file says so plainly.
 
+## The story behind it
+
+COSMOS started as a **story**, not as software. Liam DB was writing a story and playing roleplay with AI to imagine himself living among invented AI models. One of them had **infinite memory**, kept outside the model. In the story, that memory was called **COSMOS**. At some point the question became "could this really exist?", and the story turned into a real project.
+
+| | |
+|---|---|
+| **Born** | Friday 11 September 2026, 12:28:28 |
+| **Former name** | Cosmos Engine |
+| **Origin** | A fictional AI model with infinite memory, from a roleplay story |
+| **Today** | A real MCP server with its own search model, Polaris |
+
+## Timeline
+
+| When | What |
+|---|---|
+| 11 September 2026 | The idea and the project are born (Cosmos Engine) |
+| October 2026 | Search model Polaris trained and published on Hugging Face (23 October); benchmark run on Kaggle |
+| November 2026 | Website (cosmos.devliam.com) and GitHub repository |
+
+## Find the creator
+
+- 🌐 Portfolio: [devliam.com](https://devliam.com)
+- 🐙 GitHub: [DevLiamDb](https://github.com/DevLiamDb)
+
 ## The people and the AI behind it
 
 | Who | What |
 |---|---|
-| **Liam** ([DevLiamDb](https://github.com/DevLiamDb)) | Creator. The idea, the direction, the decisions, the testing. |
-| **[Claude Code](https://claude.com/claude-code)** (Anthropic) | Wrote the code of the project (engine, MCP server, installer, benchmark, training scripts), under Liam's direction. |
+| **Liam DB** ([DevLiamDb](https://github.com/DevLiamDb)) | Creator. The idea, the direction, the decisions, the testing. |
+| **[Claude Code](https://claude.com/claude-code)** (Anthropic) | Wrote the code of the project (engine, MCP server, installer, benchmark, training scripts), under Liam DB's direction. |
 | **Z.ai, model GLM 5.3 Flash** | Generated the interface of the web app (`webapp/`). |
 
 The training memories, the benchmark questions and the test texts were also written with AI, not collected from real users.
@@ -19,7 +43,7 @@ The training memories, the benchmark questions and the test texts were also writ
 | Model | Used for | Author | License |
 |---|---|---|---|
 | [`intfloat/multilingual-e5-small`](https://huggingface.co/intfloat/multilingual-e5-small) | Base of Polaris | Wang et al. (intfloat) | MIT |
-| **Polaris** (`DevLiamDb/polaris`) | COSMOS search model | Liam, fine-tuned from e5-small | see its Hugging Face page |
+| **Polaris** (`DevLiamDb/polaris`) | COSMOS search model | Liam DB, fine-tuned from e5-small | see its Hugging Face page |
 | [`paraphrase-multilingual-MiniLM-L12-v2`](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2) | Fallback search model | sentence-transformers | Apache-2.0 |
 | Qwen3 (1.7B, 4B, 8B), Qwen3.5 4B | Benchmark | Qwen (Alibaba) | see each model page |
 | SmolLM3 3B | Benchmark | Hugging Face | see model page |

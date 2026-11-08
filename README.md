@@ -27,7 +27,7 @@
 
 **COSMOS gives your assistant a memory that lives outside its context window.**
 
-*Built by Liam — with the help of AI.*
+*Built by Liam DB — with the help of AI.*
 
 </div>
 
@@ -370,16 +370,49 @@ Weak: 21 to 39% correct on our test set. You can always force a category with `n
 
 ---
 
-## Credits
+## Story & credits
 
-COSMOS was **written with AI, and we say it plainly**:
+<details>
+<summary><b>📖 How COSMOS was born</b></summary>
+<br>
 
-- **The idea** comes mainly from its creator, **Liam**.
-- **The code** was written with **[Claude Code](https://claude.com/claude-code)** (Anthropic).
-- **The web app interface** was generated with **Z.ai (GLM 5.3 Flash)**.
-- **Polaris**, the search model, is a fine-tune of `intfloat/multilingual-e5-small`.
+COSMOS started as a **story**, not as software.
 
-The complete list of people, models and libraries this project stands on is in [CREDITS.md](CREDITS.md).
+Liam DB was writing a story and playing roleplay with AI to imagine himself living among invented AI models. One of them had **infinite memory**: a memory that lived outside the model, kept everything, and gave back only what mattered. In the story, that memory was called **COSMOS**.
+
+Then at some point the story stopped being only a story. The question became "could this really exist?", and it turned into a real project, first named **Cosmos Engine**, and now simply **COSMOS**.
+
+| | |
+|---|---|
+| **Born** | Friday 11 September 2026, 12:28:28 |
+| **Former name** | Cosmos Engine |
+| **Origin** | A fictional AI model with infinite memory, from a roleplay story |
+| **Today** | A real MCP server with its own search model, Polaris |
+
+</details>
+
+<details>
+<summary><b>🙏 Credits — who and what made COSMOS</b></summary>
+<br>
+
+COSMOS was **written with AI, and we say it plainly.**
+
+| Who | Role |
+|---|---|
+| **Liam DB** ([DevLiamDb](https://github.com/DevLiamDb)) | Creator. The idea, the story behind it, the direction, the decisions, the testing. |
+| **[Claude Code](https://claude.com/claude-code)** (Anthropic) | Wrote the code of the project (engine, MCP server, installer, benchmark, training scripts), under Liam DB's direction. |
+| **Z.ai, model GLM 5.3 Flash** | Generated the interface of the web app (`webapp/`). |
+| **Polaris** | The search model: a fine-tune of [`intfloat/multilingual-e5-small`](https://huggingface.co/intfloat/multilingual-e5-small). |
+
+The training memories, the benchmark questions and the test texts were also written with AI, not collected from real users.
+
+**Built on:** [MCP](https://modelcontextprotocol.io/), [fastembed](https://github.com/qdrant/fastembed), [ONNX Runtime](https://onnxruntime.ai/), [SQLite](https://www.sqlite.org/), [Hugging Face](https://huggingface.co/), [Kaggle](https://www.kaggle.com/) (training and benchmark), [Next.js](https://nextjs.org/) and [Three.js](https://threejs.org/) for the web app.
+
+**Find the creator:** 🌐 [devliam.com](https://devliam.com) · 🐙 [GitHub](https://github.com/DevLiamDb)
+
+The complete list of models, libraries and licenses is in [CREDITS.md](CREDITS.md).
+
+</details>
 
 ---
 
@@ -399,6 +432,6 @@ See [LICENSE](LICENSE) for the full terms.
 
 <div align="center">
 
-Built by Liam — with the help of AI.
+Built by Liam DB — with the help of AI.
 
 </div>
